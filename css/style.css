@@ -181,7 +181,7 @@ blockquote:before {
 	-webkit-transform: translate3d(0,0,0); 
 }
 .top-bar {
-    background: #292929;
+    background: #000;
     height: 70px;
     overflow: hidden;
     transition: all .2s ease-in-out;
@@ -263,7 +263,7 @@ blockquote:before {
 	position: absolute;
 	top: 0;
 	height: 100%;
-	background: #222;
+	background: #000;
 	left: 130px;
 	right: 50px;
 }
@@ -308,9 +308,9 @@ blockquote:before {
 	margin-right: 14px;
 }
 .header-inner {
-    background: #fff;
+    background: #000;
     height: 70px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #000;
 	box-shadow: 0 15px 30px 0 #0000000f;
 }
 .logo-holder {
@@ -327,20 +327,20 @@ blockquote:before {
 .show-cart , .srf_btn , .search_btn {
 	float:right;
 	font-size:16px;
-	color:#666;
+	color:#fff;
 	cursor:pointer;
 	position:relative;
 	width:70px;
 	height:70px;
 	line-height:70px;
 	margin-left:24px;
-	border-left:1px solid #eee;
+	border-left:1px solid #000;
 	text-align:center;
 	box-sizing:border-box;
 	font-weight: 600;
 }
 .search_btn {
-	border-right:1px solid #eee;
+	border-right:1px solid #000;
 }
 .show-cart i, .srf_btn i  , .search_btn i{
 	position: relative;
@@ -462,7 +462,7 @@ blockquote:before {
 	right: 0;
 	width: 350px;
 	padding: 20px 15px;
-	background: #292929;
+	background: #fff;
 	border-top: none;
 	box-shadow: 0 13px 20px rgb(58 87 135 / 5%);
 	transition: all .3s ease-in-out;
@@ -714,7 +714,7 @@ blockquote:before {
 .nav-holder nav li a {
 	float: left;
 	padding: 5px 11px;
-    color: #222;
+    color: #fff;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -723,7 +723,8 @@ blockquote:before {
 	position:relative;
 }
 .nav-holder nav li a.act-link , .nav-holder nav li a:hover   {
-	color: #999;
+	color: #000;
+	background-color: #FFD700;
 }
 .nav-holder nav li a i {
 	padding-left:10px;
@@ -3253,7 +3254,7 @@ section {
     font-weight: 700;
     color: #292929;
 	padding-bottom: 15px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	border-bottom: 1px solid #ddd;
 	position: relative;
 }
@@ -5117,11 +5118,13 @@ h4.cart-title span {
 	cursor:pointer;
 	position:relative;
 	display: block;
-	border-left:1px solid #eee;
+	border-left:1px solid #000;
 	left:24px;
+	margin-right: 20px;
 }
 .nav-button  {
 	position:absolute;
+	color: #fff;
 	top:50%;
 	left:50%;
 	width:22px;
@@ -5132,8 +5135,8 @@ h4.cart-title span {
 .nav-button span{
 	float:left;
 	width:100%;
-	height:2px;
-	background:#000;
+	height:1.5px;
+	background:#fff;
 	margin-bottom:4px;
 	border-radius:4px;
 	-webkit-transition: all 200ms linear;
@@ -5152,7 +5155,7 @@ h4.cart-title span {
 	width:300px;
 	z-index:50;
  	padding:15px 10px ;
- 	background:#292929;
+ 	background:#000;
 	visibility:hidden;
 	opacity:0;
 	-webkit-transition: all 0.4s  ease-in-out;
@@ -5387,10 +5390,11 @@ h4.cart-title span {
 .nav-button span{
 	float:left;
 	width:100%;
-	height:2px;
-	background:#000;
+	height:1.5px;
+	background:#fff;
 	margin-bottom:4px;
 	border-radius:4px;
+	margin-right: 10px;
 	-webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
