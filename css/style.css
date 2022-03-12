@@ -546,7 +546,7 @@ blockquote:before {
 	float:left;
 	width:100%;
 	overflow:auto;
-	padding-right:10px;
+	padding-right:10-px;
 }
 .header-cart_wrap_total {
 	padding:18px 20px 12px;
@@ -4021,6 +4021,7 @@ section {
 }
 .video-item-img {
 	overflow: hidden;
+	height: 250px;
 }
 .video-item-title {
 	position: absolute;
