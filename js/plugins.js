@@ -171,7 +171,7 @@ jQuery,$.fn.ideaboxWeather=function(a){return a=$.extend({modulid:"ideaboxWeathe
 
 /*********************************************************************
 *  #### Twitter Post Fetcher v17.0.3 ####
-*  Coded by Jason Mayes 2015. A present to all the developers out there.
+*  Coded by Jason Mayes 2015. A precent to all the developers out there.
 *  www.jasonmayes.com
 *  Please keep this disclaimer with my code if you use it. Thanks. :-)
 *  Got feedback or questions, ask here:
