@@ -516,33 +516,33 @@ function initGmag() {
     }
 
     // video -----------------
-    var mianVidLink = $('.video-links-wrap .video-item'),
-        mianVidLinkAct = $('.video-links-wrap .video-item.video-item_active'),
-        videoHolder = $(".vh-main"),
-        videoHolderTitle = $(".video-holder-title"),
-        stisDataUrlPopupAct = mianVidLinkAct.data("video-link"),
-        stisDataUrlAct = mianVidLinkAct.data("url"),
-        stisDataUrlbgAct = mianVidLinkAct.find('img').attr("src"),
-        stisDataUrlCatAct = $(mianVidLinkAct.find('.post-category-marker')[0]).text(),
-        stisDataUrlCatUrlAct = mianVidLinkAct.find('.post-category-marker').attr("href"),
-        stisTitleAct =$(mianVidLinkAct.find('.video-item-title h4')[0]).text(),
-        stisTitleDateAct = $(mianVidLinkAct.find('.video-date strong')[0]).text();
-    videoHolder.attr("href", stisDataUrlPopupAct);
-    videoHolder.find(".bg").css("background-image", "url(" + stisDataUrlbgAct + ")");
-    videoHolderTitle.find(".video-holder-title_item a").attr("href", stisDataUrlAct);
-    videoHolderTitle.find(".video-holder-title_item a").text(stisTitleAct);
-    videoHolderTitle.find(".video-date strong").text(stisTitleDateAct);
-    videoHolderTitle.find(".post-category-marker").text(stisDataUrlCatAct);
-    videoHolderTitle.find(".post-category-marker").attr("href", stisDataUrlCatUrlAct);
-    mianVidLink.on("click", function () {
-        var that = $(this),
-            stisDataUrlPopup = that.data("video-link"),
-            stisDataUrl = that.data("url"),
-            stisDataUrlbg = that.find('img').attr("src"),
-            stisDataUrlCat = that.find('.post-category-marker').text(),
-            stisDataUrlCatUrl = that.find('.post-category-marker').attr("href"),
-            stisTitle = that.find('.video-item-title h4').text(),
-            stisTitleDate = that.find('.video-date strong').text();
+    // var mianVidLink = $('.video-links-wrap .video-item'),
+    //     mianVidLinkAct = $('.video-links-wrap .video-item.video-item_active'),
+    //     videoHolder = $(".vh-main"),
+    //     videoHolderTitle = $(".video-holder-title"),
+    //     stisDataUrlPopupAct = mianVidLinkAct.data("video-link"),
+    //     stisDataUrlAct = mianVidLinkAct.data("url"),
+    //     stisDataUrlbgAct = mianVidLinkAct.find('img').attr("src"),
+    //     stisDataUrlCatAct = $(mianVidLinkAct.find('.post-category-marker')[0]).text(),
+    //     stisDataUrlCatUrlAct = mianVidLinkAct.find('.post-category-marker').attr("href"),
+    //     stisTitleAct =$(mianVidLinkAct.find('.video-item-title h4')[0]).text(),
+    //     stisTitleDateAct = $(mianVidLinkAct.find('.video-date strong')[0]).text();
+    // videoHolder.attr("href", stisDataUrlPopupAct);
+    // videoHolder.find(".bg").css("background-image", "url(" + stisDataUrlbgAct + ")");
+    // videoHolderTitle.find(".video-holder-title_item a").attr("href", stisDataUrlAct);
+    // videoHolderTitle.find(".video-holder-title_item a").text(stisTitleAct);
+    // videoHolderTitle.find(".video-date strong").text(stisTitleDateAct);
+    // videoHolderTitle.find(".post-category-marker").text(stisDataUrlCatAct);
+    // videoHolderTitle.find(".post-category-marker").attr("href", stisDataUrlCatUrlAct);
+    // mianVidLink.on("click", function () {
+    //     var that = $(this),
+    //         stisDataUrlPopup = that.data("video-link"),
+    //         stisDataUrl = that.data("url"),
+    //         stisDataUrlbg = that.find('img').attr("src"),
+    //         stisDataUrlCat = that.find('.post-category-marker').text(),
+    //         stisDataUrlCatUrl = that.find('.post-category-marker').attr("href"),
+    //         stisTitle = that.find('.video-item-title h4').text(),
+    //         stisTitleDate = that.find('.video-date strong').text();
         // $(".vh-preloader ").fadeIn(400).delay(100).fadeOut(400);
         // setTimeout(function () {
         //     videoHolder.attr("href", stisDataUrlPopup);
@@ -555,7 +555,7 @@ function initGmag() {
         // }, 500);
         // mianVidLink.removeClass("video-item_active");
         // that.addClass("video-item_active");
-    });
+    // });
     // Mob Menu------------------
     $(".nav-button-wrap").on("click", function () {
         $(".main-menu").toggleClass("vismobmenu");
