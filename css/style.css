@@ -3903,6 +3903,9 @@ section {
 .dark-bg {
 	background: #191919;
 }
+.white-bg {
+	background: #FFFFFF;
+}
 .video-section-title {
 	margin-bottom: 30px;
 }
