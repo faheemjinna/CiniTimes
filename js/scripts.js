@@ -141,7 +141,7 @@ function initGmag() {
     function initbg() {
         var n = $(".bg");
         n.each(function (a) {
-            if ($(this).attr("data-bg")) $(this).css("background-image", "url(" + $(this).data("bg") + ")");
+            if ($(this).attr("src")) $(this).css("background-image", "url(" + $(this).data("bg") + ")");
         });
     }
     initbg();
