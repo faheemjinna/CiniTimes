@@ -17,6 +17,19 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
+//Track Auth Status
+auth.onAuthStateChanged((user) => {
+  if (user == null) {
+    $("#show-reg-form").show();
+    $("#log-out").hide();
+    $("#talent").hide();
+  } else {
+    $("#show-reg-form").hide();
+    $("#log-out").show();
+    $("#talent").show();
+  }
+});
+
 //Set up Register function
 $("#main-register-form").on("submit", function (e) {
   e.preventDefault();
@@ -56,10 +69,6 @@ $("#main-register-form").on("submit", function (e) {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
       hideModal();
-      $("#show-reg-form").hide();
-      $("#log-out").show();
-      // DOne
-      alert("User Created!!");
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -84,7 +93,7 @@ $("#main-login-form").on("submit", function (e) {
     return;
     // Don't continue running the code
   }
-
+  console.log(email, password);
   auth
     .signInWithEmailAndPassword(email, password)
     .then(function () {
@@ -102,10 +111,6 @@ $("#main-login-form").on("submit", function (e) {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
       hideModal();
-      $("#show-reg-form").hide();
-      $("#log-out").show();
-      // DOne
-      alert("User Logged In!!");
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -118,19 +123,7 @@ $("#main-login-form").on("submit", function (e) {
 
 // Set up Log out Fuction
 $("#log-out").on("click", function () {
-  auth
-    .signOut()
-    .then(() => {
-      $("#show-reg-form").show();
-      alert("Signed Out!!");
-      $("#log-out").hide();
-    })
-    .catch((error) => {
-      var error_code = error.code;
-      var error_message = error.message;
-
-      alert(error_message);
-    });
+  auth.signOut();
 });
 
 function hideModal() {

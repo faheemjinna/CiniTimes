@@ -75,8 +75,8 @@
                     <!-- logo holder  -->
                     <a href="index.html" class="logo-holder"><img src="images/logo.png" alt=""></a>
                     <!-- logo holder end -->
-                    <div class="search_btn htact show_search-btn"><i class="far fa-star" href="index.html"></i> <span
-                            class="header-tooltip">Talent</span></div>
+                    <div class="search_btn htact show_search-btn" id="talent"><i class="far fa-star"
+                            href="index.html"></i> <span class="header-tooltip">Talent</span></div>
 
                     <!-- nav-button-wrap-->
                     <div class="nav-button-wrap">
@@ -791,7 +791,7 @@
                                     <!--tab -->
                                     <div id="tab-1" class="tab-content first-tab">
                                         <div class="custom-form">
-                                            <form method="post" name="registerform">
+                                            <form method="post" name="loginform" id="main-login-form">
                                                 <label>Username or Email Address <span>*</span> </label>
                                                 <input name="email" type="text" onClick="this.select()" value="">
                                                 <label>Password <span>*</span> </label>
@@ -814,8 +814,8 @@
                                     <div class="tab">
                                         <div id="tab-2" class="tab-content">
                                             <div class="custom-form">
-                                                <form method="post" name="registerform" class="main-register-form"
-                                                    id="main-register-form2">
+                                                <form method="post" name="registerform2" class="main-register-form"
+                                                    id="main-register-form">
                                                     <label>Full Name <span>*</span> </label>
                                                     <input name="name" type="text" onClick="this.select()" value="">
                                                     <label>Email Address <span>*</span></label>
@@ -848,6 +848,15 @@
         <!--=============== scripts  ===============-->
         <script src="js/jquery.min.js"></script>
         <script src="js/plugins.js"></script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+        <script src="js/auth.js"></script>
         <script src="js/scripts.js"></script>
 </body>
 
