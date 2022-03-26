@@ -3541,7 +3541,7 @@ section {
 }
 .post-widget-item {
 	padding-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	border-top: 1px solid #ddd;
 }
 .post-widget-container .post-widget-item:first-child {
@@ -5534,7 +5534,7 @@ h4.cart-title span {
   
   /* Pricing header */
   .price .header {
-	background-color: #111;
+	background-color: #ea3323;
 	color: white;
 	font-size: 25px;
   }
@@ -5554,7 +5554,7 @@ h4.cart-title span {
   
   /* The "Sign Up" button */
   .button {
-	background-color: #04AA6D;
+	background-color: #ea3323;
 	border: none;
 	color: white;
 	padding: 10px 25px;
