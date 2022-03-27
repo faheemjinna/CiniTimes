@@ -3881,9 +3881,7 @@ section {
 	font-size: 10px;
 	font-weight: 600;
 }
-.pc_contacts ul li:first-child {
-	border-bottom: 1px solid #eee;
-}
+
 .pc_contacts ul li span {
 	padding-right: 10px;
 }
