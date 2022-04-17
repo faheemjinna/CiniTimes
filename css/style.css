@@ -674,6 +674,12 @@ blockquote:before {
 	margin-right:6px;
 	height:50px;
 }
+.textcenter {
+	margin: auto;
+	width: 70%;
+	justify-content: center;
+	padding: 10px;
+  }
 .nav-holder nav li ul {
 	margin: 30px 0 0 0;
 	opacity: 0;
@@ -3728,7 +3734,7 @@ section {
 	width: 26px;
 	height: 26px;
 	line-height: 26px;
-	color: #fff;
+	color: #191919;
 	font-weight: 600;
 	border-radius: 2px;
 	text-align: center;
@@ -3736,8 +3742,6 @@ section {
 }
 .profile-card-wrap {
 	overflow: hidden;
-	border: 1px solid #eee;
-	background: #f9f9f9;
 	border-radius: 6px;
 }
 .profile-card_media {
@@ -3751,7 +3755,7 @@ section {
 	left: 0;
 	right: 0;
 	height: 40px;
-	background: #f9f9f9;
+	background: #fff;
 	z-index: 1;
 }
 .profile-card_media img {
@@ -3773,13 +3777,13 @@ section {
 	z-index: 10;
 }
 .profile-card_media_content h4 {
-	font-size: 16px;
+	font-size: 25px;
 	text-align: left;
 	color: #fff;
 	padding-bottom: 4px;
 }
 .profile-card_media_content h5 {
-	font-size: 10px;
+	font-size: 12px;
 	text-align: left;
 	text-transform: uppercase;
 	color: #fff;
@@ -3855,7 +3859,7 @@ section {
 	background: #fff;
 }
 .profile-card-social li a:hover {
-	background: #f9f9f9;
+	background: #fff;
 }
 .profile-card-footer_title {
 	float: left;
@@ -3875,9 +3879,9 @@ section {
 .pc_contacts ul li {
 	text-align: left;
 	width: 100%;
-	padding: 15px 0;
+	padding: 10px 0;
 	text-transform: uppercase;
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: 600;
 }
 
@@ -4280,7 +4284,7 @@ section {
 }
 /*------  contacts------------------------------------------------------*/
 .contacts-list {
-	background: #f9f9f9;
+	background: #fafaf9;
 	border: 1px solid #eee;
 	padding: 15px 20px;
 }
