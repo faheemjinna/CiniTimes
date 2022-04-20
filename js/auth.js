@@ -69,6 +69,7 @@ $("#main-register-form").on("submit", function (e) {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
       hideModal();
+      window.location.href = "pricing.html";
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
