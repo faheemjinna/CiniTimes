@@ -178,45 +178,183 @@
                 </div>
                 <!-- section end  -->
                <section>
-                <button type="button" class="btn btn-success d-table my-5 mx-auto" data-bs-toggle="modal" data-bs-target="#ModalForm">
-                    Bootstrap Modal Form
-                  </button>
-                  
-                  <!-- Modal Form -->
-                  <div class="modal fade" id="ModalForm" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                          <!-- Login Form -->
-                          <form action="">
-                            <div class="modal-header">
-                              <h5 class="modal-title">Modal Login Form</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="wrapper">
+
+		
+                    <div class="form_container">
+                      <form name="form">
+                    <div class="heading">
+                    <h2>Talent Registion </h2>
+                  </div>
+                        <div class="form_wrap fullname">
+                            <div class="form_item">
+                                <label>First Name</label>
+                                <input type="text">
+                                <div class="error" id="fname"></div>  
                             </div>
-                            <div class="modal-body">
-                              <div class="mb-3">
-                                  <label for="Username">Username<span class="text-danger">*</span></label>
-                                  <input type="text" name="username" class="form-control" id="Username" placeholder="Enter Username">
-                              </div>
-                  
-                              <div class="mb-3">
-                                  <label for="Password">Password<span class="text-danger">*</span></label>
-                                  <input type="password" name="password" class="form-control" id="Password" placeholder="Enter Password">
-                              </div>
-                              <div class="mb-3">
-                                  <input class="form-check-input" type="checkbox" value="" id="remember" required>
-                                  <label class="form-check-label" for="remember">Remember Me</label>
-                                  <a href="#" class="float-end">Forgot Password</a>
-                              </div>
+                            <div class="form_item">
+                                <label>Last Name</label>
+                                <input type="text">
+                                <div class="error" id="lname"></div>  
                             </div>
-                            <div class="modal-footer pt-4">                  
-                              <button type="button" class="btn btn-success mx-auto w-100">Login</button>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Email Address</label>
+                                <input type="text">
+                                <div class="error" id="email"></div>  
                             </div>
-                            <p class="text-center">Not yet account, <a href="#">Signup</a></p> 
-                        </form>
-                      </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Phone</label>
+                                <input type="text">
+                                <div class="error" id="phone"></div>  
+                            </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Password</label>
+                                <input type="text">
+                                <div class="error" id="phone"></div>  
+                            </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Confirm Password</label>
+                                <input type="text">
+                                <div class="error" id="phone"></div>  
+                            </div>
+                        </div>
+                        <div class="form_wrap">
+                            <div class="form_item">
+                                <label>Profile Display Name</label>
+                                <input type="text">
+                                <div class="error" id="phone"></div>  
+                            </div>
+                        </div>
+                        
+                            <div class="form_item">
+                                <label>Country</label>
+                                <select name="country">
+                                    <option>India</option>
+                                </select>
+                                <div class="error" id="country"></div>  
+                            </div>
+                            <div class="form_item">
+                                <label>State</label>
+                                <select name="state">
+                                    <option>Tamilnadu</option>
+                                    <option>Kerala</option>
+                                    <option>Karnataka</option>
+                                    <option>AndhraPradesh</option>
+                                    <option>Mumbai</option>
+        
+                                </select>
+                                <div class="error" id="country"></div>  
+                            </div>
+                            <div class="form_item">
+                                <label>City</label>
+                                <select name="country">
+                                    <option>Chennai</option>
+                                    <option>Salem</option>
+                                    <option>Kochi</option>
+                                    <option>Trivandrum</option>
+                                    <option>Tanjavur</option>
+                                    <option>Telangana</option>
+                                </select>
+                                <div class="error" id="country"></div>  
+                            </div>
+                            <div class="form_item">
+                                <label>Talent as</label>
+                                <select name="country">
+                                    <option>Actor</option>
+                                    <option>Actress</option>
+                                    <option>Dancer</option>
+                                    <option>Director</option>
+                                    <option>Singer</option>
+                                    <option>Director</option>
+                                    <option>Villain</option>
+                                </select>
+                                <div class="error" id="country"></div>  
+                            </div>
+                            <div class="form_item">
+                                <label>Gender</label>
+                                <select name="country">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Rather not say</option>
+                                </select>
+                                <div class="error" id="country"></div>  
+                            </div>
+                            <div class="form_wrap fullname">
+                                <div class="form_item">
+                                    <label>D.O.B</label>
+                                    <input type="Text">
+                                    <div class="error" id="fname"></div>  
+                                </div>
+                                <div class="form_item">
+                                    <label>Age</label>
+                                    <input type="TEXT">
+                                    <div class="error" id="lname"></div>  
+                                </div>
+                            </div>
+                            <div class="form_wrap fullname">
+                                <div class="form_item">
+                                    <label>Height in cms</label>
+                                    <input type="text">
+                                    <div class="error" id="fname"></div>  
+                                </div>
+                                <div class="form_item">
+                                    <label>Weight in Kgs</label>
+                                    <input type="text">
+                                    <div class="error" id="lname"></div>  
+                                </div>
+                            </div>
+                            <div class="form_wrap fullname">
+                                <div class="form_item">
+                                    <label>Eye color</label>
+                                    <select name="country">
+                                        <option>Black</option>
+                                        <option>Brown</option>
+                                        <option>Hazel</option>
+                                    </select>
+                                    <div class="error" id="fname"></div>  
+                                </div>
+                                <div class="form_item">
+                                    <label>Hair Color</label>
+                                    <select name="country">
+                                        <option>Black</option>
+                                        <option>Brown</option>
+                                        <option>Customized</option>
+                                    </select>
+                                    <div class="error" id="lname"></div>  
+                                </div>
+                            </div>
+                            <div class="form_wrap">
+                                <div>
+                                    
+                                    <input type="checkbox">
+                                    <label> I agree to your terms and conditions.</label>
+                                    
+                                
+                                    <p style="text-align: left;">To complete registration, you must read and agree to our terms and conditions. Links to Other Websites Our Service may contain links to third-party websites or services that are not owned or controlled by the Company.The Company has no control over and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services. You further acknowledge and agree that the Company shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such web sites or services.We strongly advise You to read the terms and conditions and privacy policies of any third-party websites or services that You visit.Cancellation and Refund Policy Cancellation You can choose a subscription-based Service of the term and duration offered by the Company as listed on the Site. Your subscription will renew automatically unless you cancel it before it renews in order to avoid billing of subscription fees for the renewal term. We will notify you through email prior to the renewal date. If you chose to pay annually, at least 15 days before each renewal you will be sent a reminder notice stating the rate that will apply for the renewal period. Unless you notify us before the end of your annual subscription period that you no longer wish to receive it, your annual subscription will renew for another year. We will charge the subscription using the same card or other payment methods that you previously used. Cancellation requests must be submitted in writing to info@cinitimes.com or through Mobile @8072715200 (for Cinitimes Studios Pvt Ltd). Refund Policy Once your subscriptions start you can’t get a refund for any payments you have already made. If you don’t want to subscribe anymore, cancel your subscription. You still have access to the subscription until the end of the period you paid for.Termination We may terminate or suspend Your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if You breach these Terms and Conditions.Upon termination, Your right to use the Service will cease immediately.</p>
+                                    
+                                    <div class="error" id="phone"></div>  
+                                </div>
+                            </div>
+                            
+                            
+
+                            
+                        </div>
+
+                             <div class="btn">
+                          <input type="submit" value="SUBMIT">
+                        </div>
+                      </form>
                     </div>
                   </div>
-                  
                </section>
                 <!--about end   -->
             </div>
@@ -336,80 +474,7 @@
             </div> -->
             <!-- wrapper end -->
             <!--register form -->
-            <div class="main-register-container">
-                <div class="reg-overlay close-reg-form"></div>
-                <div class="main-register-holder">
-                    <div class="main-register-wrap fl-wrap">
-                        <div class="main-register_bg">
-                            <div class="bg-wrap">
-                                <div class="bg par-elem " data-bg="images/bg/1.jpg"></div>
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="mg_logo"><img src="images/logo2.png" alt=""></div>
-                        </div>
-                        <div class="main-register tabs-act fl-wrap">
-                            <ul class="tabs-menu">
-                                <li class="current"><a href="#tab-1"><i class="fal fa-sign-in-alt"></i> Login</a></li>
-                                <li><a href="#tab-2"><i class="fal fa-user-plus"></i> Register</a></li>
-                            </ul>
-                            <div class="close-modal close-reg-form"><i class="fal fa-times"></i></div>
-                            <!--tabs -->
-                            <div id="tabs-container">
-                                <div class="tab">
-                                    <!--tab -->
-                                    <div id="tab-1" class="tab-content first-tab">
-                                        <div class="custom-form">
-                                            <form method="post" name="loginform" id="main-login-form">
-                                                <label>Username or Email Address <span>*</span> </label>
-                                                <input name="email" type="text" onClick="this.select()" value="">
-                                                <label>Password <span>*</span> </label>
-                                                <input name="password" type="password" onClick="this.select()" value="">
-                                                <div class="filter-tags">
-                                                    <input id="check-a" type="checkbox" name="check" checked>
-                                                    <label for="check-a">Remember me</label>
-                                                </div>
-                                                <div class="lost_password">
-                                                    <a href="#">Lost Your Password?</a>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <button type="submit" class="log-submit-btn color-bg"><span>Log
-                                                        In</span></button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!--tab end -->
-                                    <!--tab -->
-                                    <div class="tab">
-                                        <div id="tab-2" class="tab-content">
-                                            <div class="custom-form">
-                                                <form method="post" name="registerform2" class="main-register-form"
-                                                    id="main-register-form">
-                                                    <label>Full Name <span>*</span> </label>
-                                                    <input name="name" type="text" onClick="this.select()" value="">
-                                                    <label>Email Address <span>*</span></label>
-                                                    <input name="email" type="text" onClick="this.select()" value="">
-                                                    <label>Password <span>*</span></label>
-                                                    <input name="password" type="password" onClick="this.select()"
-                                                        value="">
-                                                    <button type="submit"
-                                                        class="log-submit-btn color-bg"><span>Register</span></button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--tab end -->
-                                </div>
-                                <!--tabs end -->
-                                <div class="log-separator fl-wrap"><span>or</span></div>
-                                <div class="soc-log  fl-wrap">
-                                    <p>For faster login or register use your social account.</p>
-                                    <a href="#"><i class="fab fa-facebook-f"></i>Connect with Facebook</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <!--register form end -->
         </div>
         <!-- Main end -->
