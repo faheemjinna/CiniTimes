@@ -2,13 +2,13 @@
 const firebaseConfig = {
   apiKey: "AIzaSyBS9IvmDCESVIWLU9n-uFYugyoLHUPMUXg",
   authDomain: "cinistudios.firebaseapp.com",
+  databaseURL:
+    "https://cinistudios-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "cinistudios",
   storageBucket: "cinistudios.appspot.com",
   messagingSenderId: "960973097549",
   appId: "1:960973097549:web:246b9fb0e546d7f2b3ea04",
   measurementId: "G-V55KT54YKW",
-  databaseURL:
-    "https://cinistudios-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 // Initialize Firebase
@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 // Initialize variables
 const auth = firebase.auth();
 const database = firebase.database();
+var currentUser;
 
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
@@ -27,6 +28,7 @@ auth.onAuthStateChanged((user) => {
     $("#show-reg-form").hide();
     $("#log-out").show();
     $("#talent").show();
+    currentUser = user;
   }
 });
 
@@ -58,18 +60,22 @@ $("#main-register-form").on("submit", function (e) {
 
       // Add this user to Firebase Database
       var database_ref = database.ref();
-
       // Create User data
       var user_data = {
         email: email,
         name: name,
         last_login: Date.now(),
+        registrationStatus: "Free",
       };
 
       // Push to Firebase Database
-      database_ref.child("users/" + user.uid).set(user_data);
+      console.log(
+        database_ref.child("users/" + user.uid).set(user_data, (error) => {
+          if (error) console.log(error);
+          else window.location.href = "pricing.html";
+        })
+      );
       hideModal();
-      window.location.href = "pricing.html";
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -127,6 +133,11 @@ $("#log-out").on("click", function () {
   auth.signOut();
 });
 
+$("#pay-now").on("click", function (e) {
+  e.preventDefault();
+  paymentProcess();
+});
+
 function hideModal() {
   $(".main-register-container").fadeOut(1);
   $(".main-register-wrap").removeClass("vis_mr");
@@ -163,4 +174,52 @@ function validate_field(field) {
   } else {
     return true;
   }
+}
+
+function paymentProcess() {
+  var options = {
+    key: "rzp_test_hYEX3Uek3f2Wwn",
+    amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
+    currency: "INR",
+    name: "Talent Registeration",
+    description:
+      "Become a Talent in CiniTimes and Get Hired for your favorite part!",
+    image: "images/logo.png",
+    handler: function (response) {
+      savetoDB(response);
+      //$('#myModal').modal(); Can be used to say a success message
+    },
+    prefill: {
+      name: "Akshay Bhatia",
+      email: "akshay.bhatia@gmail.com",
+      contact: "8248698383",
+    },
+    theme: {
+      color: "#e93314",
+    },
+  };
+  var propay = new Razorpay(options);
+  propay.open();
+}
+
+function savetoDB(response) {
+  console.log(response);
+  var database_ref = database.ref();
+
+  // Create User data
+  var user_data = {
+    registrationStatus: "Talent",
+    paymentId: response.razorpay_payment_id,
+  };
+
+  // Push to Firebase Database
+  database_ref.child("users/" + currentUser.uid).update(user_data, (error) => {
+    if (error) console.log(error);
+    else {
+      alert(
+        "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
+      );
+      window.location.href = "usertemplate.html";
+    }
+  });
 }
