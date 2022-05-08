@@ -5606,6 +5606,7 @@ h4.cart-title span {
 	font-size: 19px;
 	margin-bottom: 35px;
 	padding: 10px;
+	height:70px;
   }
   .wrapper .form_container .form_item{
 	margin-bottom: 25px;
@@ -5660,10 +5661,11 @@ h4.cart-title span {
 	background: #ea3323;
 	border: 1px solid #ea3323;
 	padding: 10px;
-	width: 100%;
-	font-size: 14px;
+	width: 40%;
+	font-size: 17px;
 	letter-spacing: 1px;
-	border-radius: 3px;
+	border-radius: 7px;
 	cursor: pointer;
 	color: #fff;
+	height:70px
   }  
