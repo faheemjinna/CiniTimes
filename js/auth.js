@@ -32,6 +32,10 @@ auth.onAuthStateChanged((user) => {
   }
 });
 
+$("#talent").on("click", function () {
+  window.location.href = "usertemplate.html?id=" + currentUser.uid;
+});
+
 //Set up Register function
 $("#main-register-form").on("submit", function (e) {
   e.preventDefault();
@@ -106,7 +110,6 @@ $("#main-login-form").on("submit", function (e) {
     .then(function () {
       // Declare user variable
       var user = auth.currentUser;
-      console.log(user);
       // Add this user to Firebase Database
       var database_ref = database.ref();
 
@@ -178,7 +181,7 @@ function validate_field(field) {
 
 function paymentProcess() {
   var options = {
-    key: "rzp_test_hYEX3Uek3f2Wwn",
+    key: "rzp_test_Rtlp9ftyeV4dnJ",
     amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
     currency: "INR",
     name: "Talent Registeration",
@@ -190,9 +193,12 @@ function paymentProcess() {
       //$('#myModal').modal(); Can be used to say a success message
     },
     prefill: {
-      name: "Akshay Bhatia",
-      email: "akshay.bhatia@gmail.com",
-      contact: "8248698383",
+      name:
+        document.getElementById("talentfname").value +
+        " " +
+        document.getElementById("talentlname").value,
+      email: currentUser.email,
+      contact: document.getElementById("talentphone").value,
     },
     theme: {
       color: "#e93314",
@@ -203,23 +209,69 @@ function paymentProcess() {
 }
 
 function savetoDB(response) {
-  console.log(response);
   var database_ref = database.ref();
+  var userImageUrl;
+
+  const formData = new FormData();
+  formData.append(
+    "file",
+    document.getElementById("talentprofileimage").files[0]
+  );
+  formData.append("upload_preset", "fienawq5");
+
+  fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      userImageUrl = JSON.parse(data).url;
+      var user_data = {
+        fname: document.getElementById("talentfname").value,
+        lname: document.getElementById("talentlname").value,
+        phone: document.getElementById("talentphone").value,
+        profileName: document.getElementById("talentprofilename").value,
+        country: document.getElementById("talentcountry").value,
+        state: document.getElementById("talentstate").value,
+        city: document.getElementById("talentcity").value,
+        department: document.getElementById("talentdepartment").value,
+        gender: document.getElementById("talentgender").value,
+        dob: document.getElementById("talentdob").value,
+        age: document.getElementById("talentage").value,
+        height: document.getElementById("talentheight").value,
+        weight: document.getElementById("talentweight").value,
+        eyecolor: document.getElementById("talenteyecolor").value,
+        haircolor: document.getElementById("talenthaircolor").value,
+        hairtype: document.getElementById("talenthairtype").value,
+        bust: document.getElementById("talentbust").value,
+        hip: document.getElementById("talenthip").value,
+        biceps: document.getElementById("talentbiceps").value,
+        chest: document.getElementById("talentchest").value,
+        edu: document.getElementById("talentedu").value,
+        inst: document.getElementById("talentinst").value,
+        expertise: document.getElementById("talentexpertise").value,
+        availability: document.getElementById("talentavailability").value,
+        imageUrl: userImageUrl,
+        registrationStatus: "Talent",
+        paymentId: response.razorpay_payment_id,
+      };
+      console.log(document.getElementById("talentprofileimage").file);
+
+      // Push to Firebase Database
+      database_ref
+        .child("users/" + currentUser.uid)
+        .update(user_data, (error) => {
+          if (error) console.log(error);
+          else {
+            alert(
+              "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
+            );
+            window.location.href = "usertemplate.html?id=" + currentUser.uid;
+          }
+        });
+    });
 
   // Create User data
-  var user_data = {
-    registrationStatus: "Talent",
-    paymentId: response.razorpay_payment_id,
-  };
-
-  // Push to Firebase Database
-  database_ref.child("users/" + currentUser.uid).update(user_data, (error) => {
-    if (error) console.log(error);
-    else {
-      alert(
-        "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
-      );
-      window.location.href = "usertemplate.html";
-    }
-  });
 }
