@@ -201,7 +201,7 @@ function paymentProcess() {
       contact: document.getElementById("talentphone").value,
     },
     theme: {
-      color: "#e93314",
+      color: "#ff0000",
     },
   };
   var propay = new Razorpay(options);
