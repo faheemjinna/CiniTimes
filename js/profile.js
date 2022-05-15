@@ -27,7 +27,7 @@ $(document).ready(function () {
           user_data.city + ", " + user_data.state + ", " + user_data.country
         );
         $("#talentavailability").text(user_data.availability);
-        console.log(user_data.imageUrl);
+        $("#talentabout").text(user_data.aboutMe);
         $("#talentprofileimage").attr("src", user_data.imageUrl);
       } else {
         console.log("No data available");

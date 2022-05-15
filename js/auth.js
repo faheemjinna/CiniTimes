@@ -286,9 +286,8 @@ function recruitPaymentProcess() {
     key: "rzp_test_Rtlp9ftyeV4dnJ",
     amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
     currency: "INR",
-    name: "Talent Registeration",
-    description:
-      "Become a Talent in CiniTimes and Get Hired for your favorite part!",
+    name: "Recruiter Registeration",
+    description: "Become a Talent Recruiter and Get your talent needs filled!",
     image: "images/logo.png",
     handler: function (response) {
       recruitSaveToDB(response);
@@ -296,11 +295,11 @@ function recruitPaymentProcess() {
     },
     prefill: {
       name:
-        document.getElementById("talentfname").value +
+        document.getElementById("recfname").value +
         " " +
-        document.getElementById("talentlname").value,
-      email: document.getElementById("talentemail").value,
-      contact: document.getElementById("talentphone").value,
+        document.getElementById("reclname").value,
+      email: document.getElementById("recmail").value,
+      contact: document.getElementById("recphone").value,
     },
     theme: {
       color: "#ff0000",
@@ -315,10 +314,7 @@ function recruitSaveToDB(response) {
   var userImageUrl;
 
   const formData = new FormData();
-  formData.append(
-    "file",
-    document.getElementById("talentprofileimage").files[0]
-  );
+  formData.append("file", document.getElementById("recprofileimage").files[0]);
   formData.append("upload_preset", "fienawq5");
 
   fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
@@ -329,37 +325,23 @@ function recruitSaveToDB(response) {
       return response.text();
     })
     .then((data) => {
-      userImageUrl = JSON.parse(data).url;
+      recImageUrl = JSON.parse(data).url;
       var user_data = {
-        fname: document.getElementById("talentfname").value,
-        lname: document.getElementById("talentlname").value,
-        phone: document.getElementById("talentphone").value,
-        profileName: document.getElementById("talentprofilename").value,
-        country: document.getElementById("talentcountry").value,
-        state: document.getElementById("talentstate").value,
-        city: document.getElementById("talentcity").value,
-        department: document.getElementById("talentdepartment").value,
-        gender: document.getElementById("talentgender").value,
-        dob: document.getElementById("talentdob").value,
-        age: document.getElementById("talentage").value,
-        height: document.getElementById("talentheight").value,
-        weight: document.getElementById("talentweight").value,
-        eyecolor: document.getElementById("talenteyecolor").value,
-        haircolor: document.getElementById("talenthaircolor").value,
-        hairtype: document.getElementById("talenthairtype").value,
-        bust: document.getElementById("talentbust").value,
-        hip: document.getElementById("talenthip").value,
-        biceps: document.getElementById("talentbiceps").value,
-        chest: document.getElementById("talentchest").value,
-        edu: document.getElementById("talentedu").value,
-        inst: document.getElementById("talentinst").value,
-        expertise: document.getElementById("talentexpertise").value,
-        availability: document.getElementById("talentavailability").value,
-        imageUrl: userImageUrl,
-        registrationStatus: "Talent",
+        fname: document.getElementById("recfname").value,
+        lname: document.getElementById("reclname").value,
+        phone: document.getElementById("recphone").value,
+        country: document.getElementById("reccountry").value,
+        state: document.getElementById("recstate").value,
+        city: document.getElementById("reccity").value,
+        gender: document.getElementById("recgender").value,
+        organization: document.getElementById("recorg").value,
+        project: document.getElementById("recproject").value,
+        talent: document.getElementById("rectalent").value,
+        about: document.getElementById("recabout").value,
+        imageUrl: recImageUrl,
+        registrationStatus: "Recruiter",
         paymentId: response.razorpay_payment_id,
       };
-      console.log(document.getElementById("talentprofileimage").file);
 
       // Push to Firebase Database
       database_ref
@@ -368,12 +350,10 @@ function recruitSaveToDB(response) {
           if (error) console.log(error);
           else {
             alert(
-              "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
+              "Congratulations! Your now a Recruiter in CiniTimes Studios. Have a Great Journey Ahead."
             );
             window.location.href = "usertemplate.html?id=" + currentUser.uid;
           }
         });
     });
-
-  // Create User data
 }
