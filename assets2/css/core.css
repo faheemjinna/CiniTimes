@@ -41652,6 +41652,7 @@ body.is-dark .error-container .error-wrapper .error-inner h3 {
   height: 5.5rem;
   width: 7rem;
   border-radius: 50%;
+  object-fit: cover;
 }
 .friend-card .img-container .avatar.is-placeholder {
   filter: grayscale(1);
