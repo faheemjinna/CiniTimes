@@ -15,9 +15,6 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/color.css">
     <!-- Fonts -->
-    <link href="../fonts.googleapis.com/csse409.css?family=Montserrat:600,700,800,900" rel="stylesheet">
-    <link href="../fonts.googleapis.com/css0981.css?family=Roboto:400,500" rel="stylesheet">
-    <link href="../cdn.jsdelivr.net/npm/fontisto%40v3.0.4/css/fontisto/fontisto-brands.min.css" rel="stylesheet">
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets2/css/app.css">
     <link rel="stylesheet" href="assets2/css/core.css">
@@ -144,7 +141,8 @@
                                 <li><a href="trailers.html" style="margin-right: 40px;">Trailers</a></li>
                                 <li><a href="shortfilms.html" style="margin-right: 40px;">Short Films</a></li>
                                 <li><a href="music.html" style="margin-right: 40px;">Music</a></li>
-                                <li><a style="margin-right: 40px;" class="act-link">Membership<i class="fas fa-caret-down"></i></a>
+                                <li><a style="margin-right: 40px;" class="act-link">Membership<i
+                                            class="fas fa-caret-down"></i></a>
                                     <ul id="auth-menu">
                                         <li id="show-reg-form"><a>Login</a></li>
                                         <li id="log-out" style="display: none;"><a>Log Out</a></li>
@@ -195,267 +193,21 @@
                         <div class="subloader is-grey is-active">
                             <div class="loader is-loading"></div>
                         </div>
-                    
+
                         <div id="friends-page" class="friends-wrapper main-container">
-                    
+
                             <!--First tab-->
                             <div id="all-friends" class="card-row-wrap is-active">
                                 <div class="card-row-placeholder is-hidden">
                                     No matching results
                                 </div>
-                                <div class="card-row">
+                                <div class="card-row" id="card-section">
                                     <!-- /partials/pages/friends/friend-lists/all-friends.html -->
-                                     <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div><!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div><!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div><!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div><!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div><!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Faheem Jinna</h3>
-                                            <p style="text-align: center;">Actor/Comdeian</p>
-                                        </div>
-                                    </div>
-                                    <!--Friend-->
-                                    <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Siddiq Afraaz</h3>
-                                            <p style="text-align: center;">Actor/Villian</p>
-                                        </div>
-                                    </div>
-                                     <!--Friend-->
-                                     <div class="card-flex friend-card">
-                                        <div class="star-friend is-active">
-                                            <i data-feather="star"></i>
-                                        </div>
-                                        <div class="img-container">
-                                            <img class="avatar" src="../via.placeholder.com/300x300.png" data-demo-src="images/cinitimes.png" alt="">
-                                            <img class="country" src="images/all/india.png" alt="">
-                                        </div>
-                                        <div class="friend-info">
-                                            <h3>Harini GN</h3>
-                                            <p style="text-align: center;">Actress/Villian</p>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
-                    
+
                     </div>
                 </section>
                 <!-- section end -->
@@ -673,67 +425,60 @@
 
         <script src="js/auth.js"></script>
         <script src="js/scripts.js"></script>
+        <script src="js/talentSearch.js"></script>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
         <!-- Concatenated js plugins and jQuery -->
-    <script src="assets2/js/app.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="assets2/data/tipuedrop_content.js"></script>
+        <script src="assets2/js/app.js"></script>
+        <script src="assets2/data/tipuedrop_content.js"></script>
 
-    <!-- Core js -->
-    <script src="assets2/js/global.js"></script>
+        <!-- Core js -->
+        <script src="assets2/js/global.js"></script>>
 
-    <!-- Navigation options js -->
-    <script src="assets2/js/navbar-v1.js"></script>
-    <script src="assets2/js/navbar-v2.js"></script>
-    <script src="assets2/js/navbar-mobile.js"></script>
-    <script src="assets2/js/navbar-options.js"></script>
-    <script src="assets2/js/sidebar-v1.js"></script>
+        <!-- Core instance js -->
+        <script src="assets2/js/main.js"></script>
+        <script src="assets2/js/chat.js"></script>
+        <script src="assets2/js/touch.js"></script>
+        <script src="assets2/js/tour.js"></script>
 
-    <!-- Core instance js -->
-    <script src="assets2/js/main.js"></script>
-    <script src="assets2/js/chat.js"></script>
-    <script src="assets2/js/touch.js"></script>
-    <script src="assets2/js/tour.js"></script>
+        <!-- Components js -->
+        <script src="assets2/js/explorer.js"></script>
+        <script src="assets2/js/widgets.js"></script>
+        <script src="assets2/js/modal-uploader.js"></script>
+        <script src="assets2/js/popovers-users.js"></script>
+        <script src="assets2/js/popovers-pages.js"></script>
+        <script src="assets2/js/lightbox.js"></script>
 
-    <!-- Components js -->
-    <script src="assets2/js/explorer.js"></script>
-    <script src="assets2/js/widgets.js"></script>
-    <script src="assets2/js/modal-uploader.js"></script>
-    <script src="assets2/js/popovers-users.js"></script>
-    <script src="assets2/js/popovers-pages.js"></script>
-    <script src="assets2/js/lightbox.js"></script>
+        <!-- Landing page js -->
 
-    <!-- Landing page js -->
+        <!-- Signup page js -->
 
-    <!-- Signup page js -->
+        <!-- Feed pages js -->
 
-    <!-- Feed pages js -->
+        <!-- profile js -->
 
-    <!-- profile js -->
+        <!-- stories js -->
 
-    <!-- stories js -->
+        <!-- friends js -->
+        <script src="assets2/js/friends.js"></script>
 
-    <!-- friends js -->
-    <script src="assets2/js/friends.js"></script>
+        <!-- questions js -->
 
-    <!-- questions js -->
+        <!-- video js -->
 
-    <!-- video js -->
+        <!-- events js -->
 
-    <!-- events js -->
+        <!-- news js -->
 
-    <!-- news js -->
+        <!-- shop js -->
 
-    <!-- shop js -->
+        <!-- inbox js -->
 
-    <!-- inbox js -->
+        <!-- settings js -->
 
-    <!-- settings js -->
+        <!-- map page js -->
 
-    <!-- map page js -->
-
-    <!-- elements page js -->
+        <!-- elements page js -->
 </body>
 
 <!-- Mirrored from gmag.kwst.net/post-single2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Feb 2022 09:35:14 GMT -->

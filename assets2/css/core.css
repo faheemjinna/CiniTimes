@@ -15953,9 +15953,7 @@ button.button {
   color: #393a4f;
 }
 .button.light-button.raised:hover {
-  box-shadow: 0 14px 26px -12px rgba(61, 112, 178, 0.42),
-    0 4px 23px 0px rgba(0, 0, 0, 0.12),
-    0 8px 10px -5px rgba(61, 112, 178, 0.2) !important !important;
+  box-shadow: 0 14px 26px -12px rgba(61, 112, 178, 0.42),0 4px 23px 0px rgba(0, 0, 0, 0.12),0 8px 10px -5px rgba(61, 112, 178, 0.2) !important;
   opacity: 0.8;
 }
 .like-wrapper .like-button {
@@ -41651,6 +41649,8 @@ body.is-dark .error-container .error-wrapper .error-inner h3 {
 }
 .friend-card .img-container .avatar {
   display: block;
+  height: 5.5rem;
+  width: 7rem;
   border-radius: 50%;
 }
 .friend-card .img-container .avatar.is-placeholder {
