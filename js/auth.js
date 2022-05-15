@@ -24,13 +24,63 @@ auth.onAuthStateChanged((user) => {
     $("#show-reg-form").show();
     $("#log-out").hide();
     $("#talent").hide();
+    $("#talent-search-button").hide();
+    $("#audition-button").hide();
+    $("#pricing-button").hide();
+    var lastPath = window.location.pathname.split("/").pop();
+    if (
+      lastPath == "TalentSearch.html" ||
+      lastPath == "usertemplate.html" ||
+      lastPath == "EventList.html" ||
+      lastPath == "pricing.html"
+    ) {
+      window.location.href = "404.html";
+    }
   } else {
     $("#show-reg-form").hide();
     $("#log-out").show();
     $("#talent").show();
-    currentUser = user;
+    database
+      .ref("users/" + user.uid)
+      .get()
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val().registrationStatus);
+          if (snapshot.val().registrationStatus === "Talent") {
+            $("#talent-search-button").hide();
+            $("#audition-button").show();
+            $("#pricing-button").hide();
+          } else if (snapshot.val().registrationStatus === "Recruiter") {
+            $("#audition-button").hide();
+            $("#talent-search-button").show();
+            $("#pricing-button").hide();
+          } else {
+            $("#talent-search-button").hide();
+            $("#audition-button").hide();
+            $("#pricing-button").show();
+          }
+        }
+      });
   }
+  currentUser = user;
 });
+
+window.onload = function (e) {
+  console.log(currentUser);
+};
+
+// const observer = new MutationObserver(() => {
+//   if (window.location.href !== previousUrl) {
+//     console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
+//     previousUrl = window.location.href;
+//     console.log(currentUser.uid);
+//     // do your thing
+//   }
+// });
+// const config = { subtree: true, childList: true };
+
+// // start observing change
+// observer.observe(document, config);
 
 $("#talent").on("click", function () {
   window.location.href = "usertemplate.html?id=" + currentUser.uid;
@@ -357,3 +407,23 @@ function recruitSaveToDB(response) {
         });
     });
 }
+
+// $(document).ready(function () {
+//   var lastPath = window.location.pathname.split("/").pop();
+//   console.log(firebase.auth().currentUser === null);
+//   // if(currentUser == null){
+//   //   if(lastPath == "usertemplate.html" || lastPath == "TalentSearch.html"){
+//   //     window.location.href = "index.html";
+//   //     alert(currentUser);
+//   //   }
+//   // }
+// });
+
+// const onbeforeunload = function(e){
+//   e.preventDefault()
+//   window.location.href = 'index.html';
+// }
+
+// let previousUrl = "";
+
+// addEventListener("beforeunload", onbeforeunload);
