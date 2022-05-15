@@ -136,9 +136,13 @@ $("#log-out").on("click", function () {
   auth.signOut();
 });
 
-$("#pay-now").on("click", function (e) {
+$("#talent-pay-now").on("click", function (e) {
   e.preventDefault();
-  paymentProcess();
+  talentPaymentProcess();
+});
+$("#recruit-pay-now").on("click", function (e) {
+  e.preventDefault();
+  recruitPaymentProcess();
 });
 
 function hideModal() {
@@ -179,7 +183,7 @@ function validate_field(field) {
   }
 }
 
-function paymentProcess() {
+function talentPaymentProcess() {
   var options = {
     key: "rzp_test_Rtlp9ftyeV4dnJ",
     amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
@@ -189,7 +193,7 @@ function paymentProcess() {
       "Become a Talent in CiniTimes and Get Hired for your favorite part!",
     image: "images/logo.png",
     handler: function (response) {
-      savetoDB(response);
+      talentSaveToDB(response);
       //$('#myModal').modal(); Can be used to say a success message
     },
     prefill: {
@@ -197,7 +201,7 @@ function paymentProcess() {
         document.getElementById("talentfname").value +
         " " +
         document.getElementById("talentlname").value,
-      email: currentUser.email,
+      email: document.getElementById("talentemail").value,
       contact: document.getElementById("talentphone").value,
     },
     theme: {
@@ -208,7 +212,105 @@ function paymentProcess() {
   propay.open();
 }
 
-function savetoDB(response) {
+function talentSaveToDB(response) {
+  var database_ref = database.ref();
+  var userImageUrl;
+
+  const formData = new FormData();
+  formData.append(
+    "file",
+    document.getElementById("talentprofileimage").files[0]
+  );
+  formData.append("upload_preset", "fienawq5");
+
+  fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      userImageUrl = JSON.parse(data).url;
+      var user_data = {
+        fname: document.getElementById("talentfname").value,
+        lname: document.getElementById("talentlname").value,
+        phone: document.getElementById("talentphone").value,
+        profileName: document.getElementById("talentprofilename").value,
+        country: document.getElementById("talentcountry").value,
+        state: document.getElementById("talentstate").value,
+        city: document.getElementById("talentcity").value,
+        department: document.getElementById("talentdepartment").value,
+        gender: document.getElementById("talentgender").value,
+        dob: document.getElementById("talentdob").value,
+        age: document.getElementById("talentage").value,
+        height: document.getElementById("talentheight").value,
+        weight: document.getElementById("talentweight").value,
+        eyecolor: document.getElementById("talenteyecolor").value,
+        haircolor: document.getElementById("talenthaircolor").value,
+        hairtype: document.getElementById("talenthairtype").value,
+        bust: document.getElementById("talentbust").value,
+        hip: document.getElementById("talenthip").value,
+        biceps: document.getElementById("talentbiceps").value,
+        chest: document.getElementById("talentchest").value,
+        edu: document.getElementById("talentedu").value,
+        inst: document.getElementById("talentinst").value,
+        expertise: document.getElementById("talentexpertise").value,
+        availability: document.getElementById("talentavailability").value,
+        imageUrl: userImageUrl,
+        aboutMe: document.getElementById("talentabout").value,
+        registrationStatus: "Talent",
+        paymentId: response.razorpay_payment_id,
+      };
+      console.log(document.getElementById("talentprofileimage").file);
+
+      // Push to Firebase Database
+      database_ref
+        .child("users/" + currentUser.uid)
+        .update(user_data, (error) => {
+          if (error) console.log(error);
+          else {
+            alert(
+              "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
+            );
+            window.location.href = "usertemplate.html?id=" + currentUser.uid;
+          }
+        });
+    });
+
+  // Create User data
+}
+
+function recruitPaymentProcess() {
+  var options = {
+    key: "rzp_test_Rtlp9ftyeV4dnJ",
+    amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
+    currency: "INR",
+    name: "Talent Registeration",
+    description:
+      "Become a Talent in CiniTimes and Get Hired for your favorite part!",
+    image: "images/logo.png",
+    handler: function (response) {
+      recruitSaveToDB(response);
+      //$('#myModal').modal(); Can be used to say a success message
+    },
+    prefill: {
+      name:
+        document.getElementById("talentfname").value +
+        " " +
+        document.getElementById("talentlname").value,
+      email: document.getElementById("talentemail").value,
+      contact: document.getElementById("talentphone").value,
+    },
+    theme: {
+      color: "#ff0000",
+    },
+  };
+  var propay = new Razorpay(options);
+  propay.open();
+}
+
+function recruitSaveToDB(response) {
   var database_ref = database.ref();
   var userImageUrl;
 
