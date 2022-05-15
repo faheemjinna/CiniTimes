@@ -169,7 +169,7 @@
                     </div>
                     <div class="container">
                         <div class="hero-section_title">
-                            <h2>Register:Talent</h2>
+                            <h2>Register:Recruiter</h2>
                         </div>
                         <div class="clearfix"></div>
                         <div class="breadcrumbs-list fl-wrap">
@@ -192,7 +192,7 @@
                                 <div class="main-container fl-wrap fix-container-init">
                                     <div class="section-title">
                                         <h2>REGISTRATION FORM</h2>
-                                        <h4>Don't miss the great oppurtunities!</h4>
+                                        <h4>Hire the greatest Talents!</h4>
                                     </div>
                                     <div class="wrapper">
 
@@ -201,7 +201,7 @@
                                             <form name="form">
                                                 <div class="heading">
                                                     <h2 style="text-align: center;margin-top: 15px; font-size: 20px;">
-                                                        Talent Registration </h2>
+                                                        Recruiter Registration </h2>
                                                 </div>
                                                 <div class="form_wrap fullname">
                                                     <div class="form_item">
@@ -215,7 +215,7 @@
                                                       
                                                         margin-bottom: 9px;
                                                       ">First Name</label>
-                                                        <input type="text" id="talentfname" placeholder="First Name">
+                                                        <input type="text" id="recfname" placeholder="First Name">
 
                                                     </div>
                                                     <div class="form_item">
@@ -229,7 +229,7 @@
                                                       
                                                         margin-bottom: 9px;
                                                       ">Last Name</label>
-                                                        <input type="text" id="talentlname" placeholder="Last Name">
+                                                        <input type="text" id="reclname" placeholder="Last Name">
 
                                                     </div>
                                                 </div>
@@ -245,7 +245,7 @@
                                                       
                                                         margin-bottom: 9px;
                                                       ">Phone</label>
-                                                        <input type="text" id="talentphone" placeholder="Phone">
+                                                        <input type="text" id="recphone" placeholder="Phone">
 
                                                     </div>
                                                 </div>
@@ -261,7 +261,7 @@
                                                       
                                                         margin-bottom: 9px;
                                                       ">E-Mail</label>
-                                                        <input type="text" id="talent" placeholder="xyz@gmail.com">
+                                                        <input type="text" id="recmail" placeholder="xyz@gmail.com">
 
                                                     </div>
                                                 </div>
@@ -276,12 +276,30 @@
                                                         color: var(--global--color-secondary);
                                                       
                                                         margin-bottom: 9px;
-                                                      ">Profile Display Name</label>
-                                                        <input type="text" id="talentprofilename"
-                                                            placeholder="Display Name">
+                                                      ">Password</label>
+                                                        <input type="text" id="recpassword"
+                                                            placeholder="Enter your password">
 
                                                     </div>
                                                 </div>
+                                                <div class="form_wrap">
+                                                    <div class="form_item">
+                                                        <label style="text-align: left; font-family: var(--global--font-body);
+
+                                                        font-weight: 700;
+                                                      
+                                                        font-size: 14px;
+                                                      
+                                                        color: var(--global--color-secondary);
+                                                      
+                                                        margin-bottom: 9px;
+                                                      ">Confirm Password</label>
+                                                        <input type="text" id="recpass"
+                                                            placeholder="Confirm your password">
+
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="form_item">
                                                     <label style="text-align: left; font-family: var(--global--font-body);
@@ -295,7 +313,8 @@
                                                     margin-bottom: 9px;
                                                    
                                                   ">Country</label>
-                                                    <select name="country" id="talentcountry">
+                                                    <select name="country" id="reccountry">
+                                                        <option value=""disabled selected hidden>Select Country</option>
                                                         <option>India</option>
 
                                                     </select>
@@ -312,7 +331,8 @@
                                                   
                                                     margin-bottom: 9px;
                                                   ">State</label>
-                                                    <select name="state" id="talentstate">
+                                                    <select name="state" id="recstate">
+                                                        <option value=""disabled selected hidden>Select State</option>
                                                         <option>Tamilnadu</option>
                                                         <option>Kerala</option>
                                                         <option>Karnataka</option>
@@ -333,7 +353,8 @@
                                                   
                                                     margin-bottom: 9px;
                                                   ">City</label>
-                                                    <select name="city" id="talentcity">
+                                                    <select name="city" id="reccity">
+                                                        <option value=""disabled selected hidden>Select City</option>
                                                         <option>Chennai</option>
                                                         <option>Salem</option>
                                                         <option>Kochi</option>
@@ -343,28 +364,7 @@
                                                     </select>
 
                                                 </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Talent as</label>
-                                                    <select name="talent" id="talentdepartment">
-                                                        <option>Actor</option>
-                                                        <option>Actress</option>
-                                                        <option>Dancer</option>
-                                                        <option>Director</option>
-                                                        <option>Singer</option>
-                                                        <option>Director</option>
-                                                        <option>Villain</option>
-                                                    </select>
-
-                                                </div>
+                                               
                                                 <div class="form_item">
                                                     <label style="text-align: left; font-family: var(--global--font-body);
 
@@ -376,114 +376,14 @@
                                                   
                                                     margin-bottom: 9px;
                                                   ">Gender</label>
-                                                    <select name="gender" id="talentgender">
+                                                    <select name="gender" id="recgender">
+                                                        <option value=""disabled selected hidden>Choose gender</option>
                                                         <option>Male</option>
                                                         <option>Female</option>
                                                         <option>Rather not say</option>
                                                     </select>
 
                                                 </div>
-                                                <div class="form_wrap fullname">
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                       
-                                                      "> D.O.B</label>
-                                                        <input type="date" id="talentdob" style="height: 50px;width: 100%; border-radius: 6px; border: 1px solid #dadce0;padding-left: 20px;padding-right: 20px;">
-
-                                                    </div>
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                      ">Age</label>
-                                                        <input type="text" id="talentage" placeholder="Enter your age">
-
-                                                    </div>
-                                                </div>
-                                                <div class="form_wrap fullname">
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                      ">Height in cms</label>
-                                                        <input type="text" id="talentheight"
-                                                            placeholder="Enter your height">
-
-                                                    </div>
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                      ">Weight in Kgs</label>
-                                                        <input type="text" id="talentweight"
-                                                            placeholder="Enter your weight">
-
-                                                    </div>
-                                                </div>
-                                                <div class="form_wrap fullname">
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                      ">Eye color</label>
-                                                        <select name="eyecolor" id="talenteyecolor">
-                                                            <option>Black</option>
-                                                            <option>Brown</option>
-                                                            <option>Hazel</option>
-                                                        </select>
-
-                                                    </div>
-                                                    <div class="form_item">
-                                                        <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                        font-weight: 700;
-                                                      
-                                                        font-size: 14px;
-                                                      
-                                                        color: var(--global--color-secondary);
-                                                      
-                                                        margin-bottom: 9px;
-                                                      ">Hair Color</label>
-                                                        <select name="haircolor" id="talenthaircolor">
-                                                            <option>Black</option>
-                                                            <option>Brown</option>
-                                                            <option>Customized</option>
-                                                        </select>
-
-                                                    </div>
-                                                </div>
                                                 <div class="form_item">
                                                     <label style="text-align: left; font-family: var(--global--font-body);
 
@@ -494,131 +394,16 @@
                                                     color: var(--global--color-secondary);
                                                   
                                                     margin-bottom: 9px;
-                                                  ">Hair Type</label>
-                                                    <select name="hairtype" id="talenthairtype">
-                                                        <option>Long</option>
-                                                        <option>Medium</option>
-                                                        <option>Short</option>
-                                                    </select>
-
-                                                </div>
-
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Bust in inches</label>
-                                                    <input type="text" id="talentbust" placeholder="Bust in inches">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Hip in inches</label>
-                                                    <input type="text" id="talenthip" placeholder="Hip in inches">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Biceps in inches</label>
-                                                    <input type="text" id="talentbiceps" placeholder="Biceps in inches">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Chest in inches</label>
-                                                    <input type="text" id="talentchest" placeholder="Chest in inches">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Educational Qualification</label>
-                                                    <input type="text" id="talentedu"
-                                                        placeholder="Enter your highest qualification">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Institution</label>
-                                                    <input type="text" id="talentinst"
-                                                        placeholder="Name of the University/Institution">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Expertise in</label>
-                                                    <input type="text" id="talentexpertise"
-                                                        placeholder="Fields expert in">
-
-                                                </div>
-                                                <div class="form_item">
-                                                    <label style="text-align: left; font-family: var(--global--font-body);
-
-                                                    font-weight: 700;
-                                                  
-                                                    font-size: 14px;
-                                                  
-                                                    color: var(--global--color-secondary);
-                                                  
-                                                    margin-bottom: 9px;
-                                                  ">Availability</label>
-                                                    <select name="availability" id="talentavailability">
-                                                        <option>Full-time</option>
-                                                        <option>Part-time</option>
-
+                                                  ">What Organization do you represent?</label>
+                                                    <select name="talent" id="rec1">
+                                                        <option value=""disabled selected hidden>Select</option>
+                                                        <option>Media</option>
+                                                        <option>Film Industry</option>
+                                                        <option>Dance</option>
+                                                        <option>Music</option>
+                                                        <option>Photography</option>
+                                                        <option>Editing</option>
+                                                        
                                                     </select>
 
                                                 </div>
@@ -632,8 +417,60 @@
                                                     color: var(--global--color-secondary);
                                                   
                                                     margin-bottom: 9px;
-                                                  ">About me</label>
-                                                    <input type="text" id="talentabout" style="height: 100px; text-align: top;">
+                                                  ">What kind of projects you work on?</label>
+                                                    <select name="talent" id="rec2">
+                                                        <option value=""disabled selected hidden>Select</option>
+                                                        <option>Media</option>
+                                                        <option>Film Industry</option>
+                                                        <option>Dance</option>
+                                                        <option>Music</option>
+                                                        <option>Photography</option>
+                                                        <option>Editing</option>
+                                                        
+                                                    </select>
+
+                                                </div>
+                                                <div class="form_item">
+                                                    <label style="text-align: left; font-family: var(--global--font-body);
+
+                                                    font-weight: 700;
+                                                  
+                                                    font-size: 14px;
+                                                  
+                                                    color: var(--global--color-secondary);
+                                                  
+                                                    margin-bottom: 9px;
+                                                  ">What talent are you looking for?</label>
+                                                    <select name="talent" id="rec3">
+                                                        <option value=""disabled selected hidden>Select</option>
+                                                        <option>Actor</option>
+                                                        <option>Actress</option>
+                                                        <option>Dancer</option>
+                                                        <option>Singer</option>
+                                                        <option>Photographer</option>
+                                                        <option>Editor</option>
+                                                        <option>Director</option>
+                                                        
+                                                    </select>
+
+                                                </div>
+                                               
+                                               
+                                               
+                                               
+                                               
+                                                <div class="form_item">
+                                                    <label style="text-align: left; font-family: var(--global--font-body);
+
+                                                    font-weight: 700;
+                                                  
+                                                    font-size: 14px;
+                                                  
+                                                    color: var(--global--color-secondary);
+                                                  
+                                                    margin-bottom: 9px;
+                                                  ">Provide a brief description of your company.</label>
+                                                    <input type="text" id="recabout" style="height: 100px; text-align: top;">
 
                                                 </div>
                                                 <div class="form_item">
@@ -647,7 +484,7 @@
                                                   
                                                     margin-bottom: 9px;
                                                   ">Profile Image</label>
-                                                    <input type="file" name="files" id="talentprofileimage" style="height: 50px; width: 100%;" >
+                                                    <input type="file" name="files" id="recprofileimage" style="height: 50px; width: 100%;" >
 
                                                 </div>
 
