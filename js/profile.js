@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  window.hideLoading = () => {
+    document.getElementById("loading-overlay").classList.add("hide-loading");
+  };
+
+  window.showLoading = () => {
+    document.getElementById("loading-overlay").classList.remove("hide-loading");
+  };
+  window.showLoading();
   let searchParams = new URLSearchParams(window.location.search);
   let userId = searchParams.get("id");
   const dbRef = firebase.database().ref();
@@ -29,6 +37,7 @@ $(document).ready(function () {
         $("#talentavailability").text(user_data.availability);
         $("#talentabout").text(user_data.aboutMe);
         $("#talentprofileimage").attr("src", user_data.imageUrl);
+        window.hideLoading();
       } else {
         console.log("No data available");
       }

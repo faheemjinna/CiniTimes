@@ -184,14 +184,28 @@
                 <!-- section end  -->
                 <!--section   -->
                 <section>
+                    <div id="loading-overlay" style="color: #26dafd;
+    position: fixed;
+    top: 0;
+    bottom: 0px;
+    width: 100vw;
+    text-align: center;
+    background-color: white;
+    background-image: url(/image/background.png);
+    z-index: 9999;
+">
+                        <div
+                            style="display: grid; height: 100vh; text-align: center; vertical-align: middle; justify-content: center; align-items: center;">
+                            <img src="images/LoadGif.gif" alt="">
+                        </div>
+                    </div>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-6">
                                     <!-- <div class="fl-wrap"> -->
                                     <div class="profile-card-wrap fl-wrap" style="height: 100%; object-fit: fill;">
-                                        <img src="images/pooja1.png"
-                                            style="border-radius: 5px; height: 570px; margin-top: 2px;" alt=""
+                                        <img src="" style="border-radius: 5px; height: 570px; margin-top: 2px;" alt=""
                                             id="talentprofileimage">
                                     </div>
                                 </div>
@@ -612,6 +626,15 @@
                 </div>
             </div> -->
             <!-- wrapper end -->
+
+            <style>
+                /* This will make your loading-overlay UI transition out all fancy like */
+                .hide-loading {
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: visibility 1s, opacity 1s linear;
+                }
+            </style>
             <!--register form -->
             <div class="main-register-container">
                 <div class="reg-overlay close-reg-form"></div>

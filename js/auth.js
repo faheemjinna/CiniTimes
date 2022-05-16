@@ -17,6 +17,13 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 var currentUser;
+window.hideLoading = () => {
+  document.getElementById("loading-overlay").classList.add("hide-loading");
+};
+
+window.showLoading = () => {
+  document.getElementById("loading-overlay").classList.remove("hide-loading");
+};
 
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
@@ -65,23 +72,6 @@ auth.onAuthStateChanged((user) => {
   currentUser = user;
 });
 
-window.onload = function (e) {
-  console.log(currentUser);
-};
-
-// const observer = new MutationObserver(() => {
-//   if (window.location.href !== previousUrl) {
-//     console.log(`URL changed from ${previousUrl} to ${window.location.href}`);
-//     previousUrl = window.location.href;
-//     console.log(currentUser.uid);
-//     // do your thing
-//   }
-// });
-// const config = { subtree: true, childList: true };
-
-// // start observing change
-// observer.observe(document, config);
-
 $("#talent").on("click", function () {
   window.location.href = "usertemplate.html?id=" + currentUser.uid;
 });
@@ -126,7 +116,10 @@ $("#main-register-form").on("submit", function (e) {
       console.log(
         database_ref.child("users/" + user.uid).set(user_data, (error) => {
           if (error) console.log(error);
-          else window.location.href = "pricing.html";
+          else {
+            window.location.href = "pricing.html";
+            window.hideLoading;
+          }
         })
       );
       hideModal();
@@ -188,6 +181,7 @@ $("#log-out").on("click", function () {
 
 $("#talent-pay-now").on("click", function (e) {
   e.preventDefault();
+  window.showLoading();
   talentPaymentProcess();
 });
 $("#recruit-pay-now").on("click", function (e) {
@@ -315,17 +309,22 @@ function talentSaveToDB(response) {
       console.log(document.getElementById("talentprofileimage").file);
 
       // Push to Firebase Database
-      database_ref
-        .child("users/" + currentUser.uid)
-        .update(user_data, (error) => {
-          if (error) console.log(error);
-          else {
-            alert(
-              "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
-            );
-            window.location.href = "usertemplate.html?id=" + currentUser.uid;
-          }
-        });
+      try {
+        database_ref
+          .child("users/" + currentUser.uid)
+          .update(user_data, (error) => {
+            if (error) console.log(error);
+            else {
+              alert(
+                "Congratulations! Your now a Talent in CiniTimes Studios. Have a Great Journey Ahead."
+              );
+              window.location.href = "usertemplate.html?id=" + currentUser.uid;
+            }
+          });
+      } catch (error) {
+        alert("Something went Wrong! Try Again.");
+        window.location.href = "index.html";
+      }
     });
 
   // Create User data
