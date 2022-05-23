@@ -1,3 +1,5 @@
+$("#membershipHide").hide();
+
 // Confidential need to be hidden
 const firebaseConfig = {
   apiKey: "AIzaSyBS9IvmDCESVIWLU9n-uFYugyoLHUPMUXg",
