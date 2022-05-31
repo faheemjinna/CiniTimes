@@ -17,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 var currentUser;
+var currentUserRole;
 
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
@@ -50,10 +51,12 @@ auth.onAuthStateChanged((user) => {
             $("#talent-search-button").hide();
             $("#audition-button").show();
             $("#pricing-button").hide();
+            currentUserRole = "Talent";
           } else if (snapshot.val().registrationStatus === "Recruiter") {
             $("#audition-button").hide();
             $("#talent-search-button").show();
             $("#pricing-button").hide();
+            currentUserRole = "Recruiter";
           } else {
             $("#talent-search-button").hide();
             $("#audition-button").hide();
@@ -65,8 +68,10 @@ auth.onAuthStateChanged((user) => {
   currentUser = user;
 });
 
-$("#talent").on("click", function () {
-  window.location.href = "usertemplate.html?id=" + currentUser.uid;
+$("#user-profile").on("click", function () {
+  if (currentUserRole == "Talent")
+    window.location.href = "usertemplate.html?id=" + currentUser.uid;
+  else window.location.href = "rectemplate.html?id=" + currentUser.uid;
 });
 
 //Set up Register function
@@ -298,6 +303,7 @@ function talentSaveToDB(response) {
         aboutMe: document.getElementById("talentabout").value,
         registrationStatus: "Talent",
         paymentId: response.razorpay_payment_id,
+        paymentDate: new Date().getTime(),
       };
       console.log(document.getElementById("talentprofileimage").file);
 
@@ -383,6 +389,7 @@ function recruitSaveToDB(response) {
         imageUrl: recImageUrl,
         registrationStatus: "Recruiter",
         paymentId: response.razorpay_payment_id,
+        paymentDate: new Date().getTime(),
       };
 
       // Push to Firebase Database

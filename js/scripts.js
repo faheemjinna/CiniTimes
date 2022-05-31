@@ -775,7 +775,8 @@ document.addEventListener("gesturestart", function (e) {
 });
 
 // Init all functions------------------
-$(document).ready(function () {
+jQuery(function () {
+  if (window.location.pathname.split("/").pop() == "usertemplate.html") {
+  } else window.hideLoading();
   initCiniTimes();
-  window.hideLoading();
 });

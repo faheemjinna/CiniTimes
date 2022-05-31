@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  window.showLoading();
   let searchParams = new URLSearchParams(window.location.search);
   let userId = searchParams.get("id");
   const dbRef = firebase.database().ref();
+  window.showLoading();
   dbRef
     .child("users")
     .child(userId)
