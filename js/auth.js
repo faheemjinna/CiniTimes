@@ -24,7 +24,7 @@ auth.onAuthStateChanged((user) => {
   if (user == null) {
     $("#show-reg-form").show();
     $("#log-out").hide();
-    $("#talent").hide();
+    $("#user-profile").hide();
     $("#talent-search-button").hide();
     $("#audition-button").hide();
     $("#pricing-button").hide();
@@ -40,7 +40,7 @@ auth.onAuthStateChanged((user) => {
   } else {
     $("#show-reg-form").hide();
     $("#log-out").show();
-    $("#talent").show();
+    $("#user-profile").show();
     database
       .ref("users/" + user.uid)
       .get()
