@@ -1,11 +1,4 @@
 $(document).ready(function () {
-  window.hideLoading = () => {
-    document.getElementById("loading-overlay").classList.add("hide-loading");
-  };
-
-  window.showLoading = () => {
-    document.getElementById("loading-overlay").classList.remove("hide-loading");
-  };
   window.showLoading();
   let searchParams = new URLSearchParams(window.location.search);
   let userId = searchParams.get("id");

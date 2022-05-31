@@ -17,13 +17,6 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 var currentUser;
-window.hideLoading = () => {
-  document.getElementById("loading-overlay").classList.add("hide-loading");
-};
-
-window.showLoading = () => {
-  document.getElementById("loading-overlay").classList.remove("hide-loading");
-};
 
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
@@ -406,23 +399,3 @@ function recruitSaveToDB(response) {
         });
     });
 }
-
-// $(document).ready(function () {
-//   var lastPath = window.location.pathname.split("/").pop();
-//   console.log(firebase.auth().currentUser === null);
-//   // if(currentUser == null){
-//   //   if(lastPath == "usertemplate.html" || lastPath == "TalentSearch.html"){
-//   //     window.location.href = "index.html";
-//   //     alert(currentUser);
-//   //   }
-//   // }
-// });
-
-// const onbeforeunload = function(e){
-//   e.preventDefault()
-//   window.location.href = 'index.html';
-// }
-
-// let previousUrl = "";
-
-// addEventListener("beforeunload", onbeforeunload);

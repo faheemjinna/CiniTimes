@@ -1,3 +1,12 @@
+window.hideLoading = () => {
+  document.getElementById("loading-overlay").classList.add("hide-loading");
+};
+window.showLoading = () => {
+  document.getElementById("loading-overlay").classList.remove("hide-loading");
+};
+
+window.showLoading();
+
 // All functions  ------------------
 function initCiniTimes() {
   $("head").append(
@@ -764,7 +773,9 @@ function initCiniTimes() {
 document.addEventListener("gesturestart", function (e) {
   e.preventDefault();
 });
+
 // Init all functions------------------
 $(document).ready(function () {
   initCiniTimes();
+  window.hideLoading();
 });
