@@ -260,15 +260,19 @@ z-index: 9999;
                                         <form class="custom-form" action="http://gmag.kwst.net/php/contact.php"
                                             name="contactform" id="contactform">
                                             <fieldset>
-                                                <input type="text" name="name" id="wood" placeholder="Role: "
+                                                <input type="text" name="name" id="event_title" placeholder="Title: "
+                                                    value="" />
+                                                    <input type="text" name="name" id="event_duration" placeholder="Duration: "
+                                                    value="" />
+                                                    <input type="text" name="name" id="event_role" placeholder="Role: "
                                                     value="" />
                                                 <textarea name="comments" id="comments" cols="40" rows="3"
                                                     placeholder="Description: "></textarea>
                                             </fieldset>
-                                            <button class="btn   color-bg float-btn" id="submit">Send Mail<i
+                                            <button class="btn   color-bg float-btn" id="submit">Add Event<i
                                                     class="fas fa-caret-right"></i></button>
                                             <button class="btn   color-bg float-btn" id="submit"
-                                                style="margin-left: 30px;">Make a Call<i
+                                                style="margin-left: 30px;">Delete<i
                                                     class="fas fa-caret-right"></i></button>
                                         </form>
                                     </div>
@@ -505,6 +509,25 @@ z-index: 9999;
                                             <!--grid-post-item end-->
                                         </div>
                                     </div>
+
+
+                                    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="file-upload col-md-12" style="width: 100%;">
+  <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+  <div class="image-upload-wrap">
+    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+    <div class="drag-text">
+      <h3 style="color: black; margin-top: 20px;">Drag and drop a file or select add Image</h3>
+    </div>
+  </div>
+  <div class="file-upload-content">
+    <img class="file-upload-image" src="#" alt="your image" />
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+    </div>
+  </div>
+</div>
                                     <!--grid-post-wrap end-->
                                     <!-- <div class="clearfix"></div> -->
                                     <!-- <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div> -->
