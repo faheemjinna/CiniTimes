@@ -191,7 +191,7 @@ $("#add-talent-image").on("click", function () {
   let searchParams = new URLSearchParams(window.location.search);
   let userId = searchParams.get("id");
   if (currentUser.uid == userId) {
-    //dialog box appears
+    console.log("Yes");
   } else console.log("Not authenticated");
 });
 
