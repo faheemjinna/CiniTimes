@@ -15,6 +15,14 @@
     <link type="text/css" rel="stylesheet" href="css/style.css">
     <link type="text/css" rel="stylesheet" href="css/color.css">
     <!--=============== favicons ===============-->
+    <!-- Fonts -->
+    <link href="../fonts.googleapis.com/csse409.css?family=Montserrat:600,700,800,900" rel="stylesheet">
+    <link href="../fonts.googleapis.com/css0981.css?family=Roboto:400,500" rel="stylesheet">
+    <link href="../cdn.jsdelivr.net/npm/fontisto%40v3.0.4/css/fontisto/fontisto-brands.min.css" rel="stylesheet">
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets2/css/app.css">
+    <link rel="stylesheet" href="assets2/css/core.css">
+    <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 
@@ -292,7 +300,7 @@ z-index: 9999;
                                 <div class="col-md-12">
                                     <div class="main-container fl-wrap fix-container-init">
                                         <div class="section-title" style="margin-top: 30px;">
-                                            <h3>Recent Posts:</h3>
+                                            <h3>Active Events:</h3>
                                             <!-- <div class="steader_opt steader_opt_abs">
                                             <select name="filter" id="list" data-placeholder="Persons"
                                                 class="style-select no-search-select">
@@ -303,99 +311,137 @@ z-index: 9999;
                                             </select>
                                         </div> -->
                                         </div>
-                                        <!--grid-post-wrap-->
-                                        <div class="grid-post-wrap">
-                                            <div class="row">
-                                                <!--grid-post-item-->
-                                                <div class="col-md-4">
-                                                    <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                        <div class="grid-post-media">
-                                                            <a href="post-single.html" class="gpm_link">
-                                                                <div class="bg-wrap">
-                                                                    <div class="bg" data-bg="images/all/16.jpg"></div>
-                                                                </div>
-                                                            </a>
-                                                            <span class="post-media_title">&copy; Cinitimes</span>
-                                                        </div>
-                                                        <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Science</a> -->
-
-                                                    </div>
-                                                </div>
-                                                <!--grid-post-item end-->
-                                                <!--grid-post-item-->
-                                                <div class="col-md-4">
-                                                    <div class="grid-post-item  bold_gpi fl-wrap">
-                                                        <div class="grid-post-media">
-                                                            <a href="post-single.html" class="gpm_link">
-                                                                <div class="bg-wrap">
-                                                                    <div class="bg" data-bg="images/all/17.jpg"></div>
-                                                                </div>
-                                                            </a>
-                                                            <span class="post-media_title">&copy; Cinitimes</span>
-                                                        </div>
-                                                        <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Politics</a> -->
-
-                                                    </div>
-                                                </div>
-                                                <!--grid-post-item end-->
-                                                <!--grid-post-item-->
-                                                <div class="col-md-4">
-                                                    <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                        <div class="grid-post-media">
-                                                            <a href="post-single.html" class="gpm_link">
-                                                                <div class="bg-wrap">
-                                                                    <div class="bg" data-bg="images/all/3.jpg"></div>
-                                                                </div>
-                                                            </a>
-                                                            <span class="post-media_title">&copy; Cinitimes</span>
-                                                        </div>
-                                                        <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Business</a> -->
-
-                                                    </div>
-                                                </div>
-                                                <!--grid-post-item end-->
-                                                <!--grid-post-item-->
-                                                <div class="col-md-4">
-                                                    <div class="grid-post-item  bold_gpi fl-wrap">
-                                                        <div class="grid-post-media">
-                                                            <a href="post-single.html" class="gpm_link">
-                                                                <div class="bg-wrap">
-                                                                    <div class="bg" data-bg="images/all/19.jpg"></div>
-                                                                </div>
-                                                            </a>
-                                                            <span class="post-media_title">&copy; Cinitimes</span>
-                                                        </div>
-                                                        <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Science</a> -->
-
-                                                    </div>
-                                                </div>
-                                                <!--grid-post-item end-->
-                                            </div>
-                                        </div>
-                                        <!--grid-post-wrap end-->
-                                        <!-- <div class="clearfix"></div> -->
-                                        <!-- <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div> -->
-                                        <!--pagination-->
-                                        <!-- <div class="pagination">
-                                            <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i></a>
-                                            <a href="#">01.</a>
-                                            <a href="#" class="current-page">02.</a>
-                                            <a href="#">03.</a>
-                                            <a href="#">04.</a>
-                                            <a href="#" class="nextposts-link"><i class="fas fa-caret-right"></i></a>
-                                        </div> -->
-                                        <!--pagination end-->
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card-row col-md-12">
+                                <!-- /partials/pages/friends/friend-lists/all-friends.html -->
+                                
+                                <div class="card-flex friend-card col-md-4">
+                                    <div class="star-friend is-active">
+                                        <i data-feather="star"></i>
+                                    </div>
+                                    <div class="img-container">
+                                        <img class="avatar" src="images/cinitimes.png" alt="">
+                                        <img class="country" src="images/all/india.png" alt="">
+                                    </div>
+                                    <div class="friend-info">
+                                        <h2 style="font-weight: bold;">Female Supporting Actor needed!!</h2>
+                                        <p style=" text-align: justify;"><a style="color: black;">Posted by:
+                                            </a>Cinitimes</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Duration: </a>Part time</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Posted on: </a>May 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Expiry on: </a>June 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Project Description: </a>Looking for good
+                                            looking female models from all over North India for our upcoming
+                                            collection of saree shoot. Budget - based on profile.</p>
+                                        <div class="subcribe-form fl-wrap textcenter">
+                                            <button type="submit" id="subscribe-button"
+                                                class="subscribe-button color-bg" style="width: 110px;">Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Friend-->
+                                <div class="card-flex friend-card col-md-4">
+                                    <div class="star-friend is-active">
+                                        <i data-feather="star"></i>
+                                    </div>
+                                    <div class="img-container">
+                                        <img class="avatar" src="images/cinitimes.png"alt="">
+                                        <img class="country" src="images/all/india.png" alt="">
+                                    </div>
+                                    <div class="friend-info">
+                                        <h2 style="font-weight: bold;">Female Supporting Actor needed!!</h2>
+                                        <p style=" text-align: justify;"><a style="color: black;">Posted by:
+                                            </a>Cinitimes</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Duration: </a>Part time</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Posted on: </a>May 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Expiry on: </a>June 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Project Description: </a>Looking for good
+                                            looking female models from all over North India for our upcoming
+                                            collection of saree shoot. Budget - based on profile.</p>
+                                        <div class="subcribe-form fl-wrap textcenter">
+                                            <button type="submit" id="subscribe-button"
+                                                class="subscribe-button color-bg" style="width: 110px;">Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Friend-->
+                                <div class="card-flex friend-card col-md-4">
+                                    <div class="star-friend is-active">
+                                        <i data-feather="star"></i>
+                                    </div>
+                                    <div class="img-container">
+                                        <img class="avatar" src="images/cinitimes.png"alt="">
+                                        <img class="country" src="images/all/india.png" alt="">
+                                    </div>
+                                    <div class="friend-info">
+                                        <h2 style="font-weight: bold;">Female Supporting Actor needed!!</h2>
+                                        <p style=" text-align: justify;"><a style="color: black;">Posted by:
+                                            </a>Cinitimes</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Duration: </a>Part time</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Posted on: </a>May 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Expiry on: </a>June 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Project Description: </a>Looking for good
+                                            looking female models from all over North India for our upcoming
+                                            collection of saree shoot. Budget - based on profile.</p>
+                                        <div class="subcribe-form fl-wrap textcenter">
+                                            <button type="submit" id="subscribe-button"
+                                                class="subscribe-button color-bg" style="width: 110px;">Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Friend-->
+                                <div class="card-flex friend-card col-md-4">
+                                    <div class="star-friend is-active">
+                                        <i data-feather="star"></i>
+                                    </div>
+                                    <div class="img-container">
+                                        <img class="avatar" src="images/cinitimes.png"alt="">
+                                        <img class="country" src="images/all/india.png" alt="">
+                                    </div>
+                                    <div class="friend-info">
+                                        <h2 style="font-weight: bold;">Female Supporting Actor needed!!</h2>
+                                        <p style=" text-align: justify;"><a style="color: black;">Posted by:
+                                            </a>Cinitimes</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Duration: </a>Part time</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                                                style="color: black;">Posted on: </a>May 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Expiry on: </a>June 9, 2022</p>
+                                        <p style="margin-top: -15px; text-align: justify;"><a
+                                                style="color: black;">Project Description: </a>Looking for good
+                                            looking female models from all over North India for our upcoming
+                                            collection of saree shoot. Budget - based on profile.</p>
+                                        <div class="subcribe-form fl-wrap textcenter">
+                                            <button type="submit" id="subscribe-button"
+                                                class="subscribe-button color-bg" style="width: 110px;">Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Friend-->
                             </div>
                             <div class="col-md-12">
                                 <div class="main-container fl-wrap fix-container-init">
                                     <div class="section-title" style="margin-top: 30px;">
-                                        <h3>Active Events:</h3>
+                                        <h3>Recent Posts:</h3>
                                         <!-- <div class="steader_opt steader_opt_abs">
                                             <select name="filter" id="list" data-placeholder="Persons"
                                                 class="style-select no-search-select">

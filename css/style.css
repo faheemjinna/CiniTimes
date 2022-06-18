@@ -751,7 +751,7 @@ blockquote:before {
 .nav-holder nav li a.act-link,
 .nav-holder nav li a:hover {
   color: #000;
-  background-color: #ffd700;
+  background-color: #ecbf41;
 }
 .nav-holder nav li a i {
   padding-left: 10px;
@@ -5924,3 +5924,4 @@ body {
 .textcenter {
   text-align: center;
 }
+
