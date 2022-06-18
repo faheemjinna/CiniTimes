@@ -187,6 +187,14 @@ $("#recruit-pay-now").on("click", function (e) {
   recruitPaymentProcess();
 });
 
+$("#add-talent-image").on("click", function () {
+  let searchParams = new URLSearchParams(window.location.search);
+  let userId = searchParams.get("id");
+  if (currentUser.uid == userId) {
+    //dialog box appears
+  } else console.log("Not authenticated");
+});
+
 function hideModal() {
   $(".main-register-container").fadeOut(1);
   $(".main-register-wrap").removeClass("vis_mr");
