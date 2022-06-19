@@ -21,7 +21,7 @@
 	++ responsive ++
 */
 /*-------------Import fonts ---------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&amp;family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap");
 /*-------------General Style---------------------------------------*/
 html {
   overflow-x: hidden !important;
@@ -3715,7 +3715,7 @@ section {
 .list-post-media a:after,
 .grid-post-media a.gpm_link:after {
   font-family: Font Awesome\5 Pro;
-  content: "\f178";
+  content: "\f178"; /*icon-change*/
   position: absolute;
   left: 50%;
   top: 50%;
@@ -5925,7 +5925,6 @@ body {
   text-align: center;
 }
 
-
 .file-upload {
   background-color: #ffffff;
   width: 600px;
@@ -5942,7 +5941,7 @@ body {
   padding: 10px;
   border-radius: 4px;
   border-bottom: 4px solid red;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -5951,13 +5950,13 @@ body {
 .file-upload-btn:hover {
   background: red;
   color: #ffffff;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .file-upload-btn:active {
   border: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .file-upload-content {
@@ -5969,7 +5968,6 @@ body {
   position: absolute;
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
   outline: none;
   opacity: 0;
@@ -6019,7 +6017,7 @@ body {
   padding: 10px;
   border-radius: 4px;
   border-bottom: 4px solid #e2a610;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   outline: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -6028,11 +6026,11 @@ body {
 .remove-image:hover {
   background: #e2a610;
   color: #ffffff;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .remove-image:active {
   border: 0;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }

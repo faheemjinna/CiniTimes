@@ -30,6 +30,28 @@ $(document).ready(function () {
         $("#talentavailability").text(user_data.availability);
         $("#talentabout").text(user_data.aboutMe);
         $("#talentprofileimage").attr("src", user_data.imageUrl);
+        try {
+          Object.values(user_data.images).forEach(function (val) {
+            $("#post-section").append(
+              `<div class="col-md-4">
+                <div class="grid-post-item  bold_gpi  fl-wrap">
+                    <div class="grid-post-media">
+                        <a href="post-single.html" class="gpm_link">
+                            <div class="bg-wrap">
+                                <img style="width: 100%" src="${val}"></img>
+                            </div>
+                        </a>
+                        <span class="post-media_title">&copy; Cinitimes</span>
+                    </div>
+                </div>
+              </div>`
+            );
+          });
+        } catch (e) {
+          $("#post-section").append(
+            `<h1 style="text-align: center; font-weight: 600; font-size: 1rem; color: #999999; padding: 2rem;">User doesn't have any posts.</h1>`
+          );
+        }
         window.hideLoading();
       } else {
         console.log("No data available");

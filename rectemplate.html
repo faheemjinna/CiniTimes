@@ -295,86 +295,12 @@ z-index: 9999;
                                     <div class="section-title" style="margin-top: 30px;">
                                         <br>
                                         <h4>Recent Posts:</h4>
-                                        <!-- <div class="steader_opt steader_opt_abs">
-                                            <select name="filter" id="list" data-placeholder="Persons"
-                                                class="style-select no-search-select">
-                                                <option>Latest</option>
-                                                <option>Most Read</option>
-                                                <option>Most Viewed</option>
-                                                <option>Most Commented</option>
-                                            </select>
-                                        </div> -->
                                     </div>
                                     <!--grid-post-wrap-->
                                     <div class="grid-post-wrap">
-                                        <div class="row">
+                                        <div id="post-section" class="row">
                                             <!--grid-post-item-->
-                                            <div class="col-md-4">
-                                                <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                    <div class="grid-post-media">
-                                                        <a href="post-single.html" class="gpm_link">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/16.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Cinitimes</span>
-                                                    </div>
-                                                    <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Science</a> -->
 
-                                                </div>
-                                            </div>
-                                            <!--grid-post-item end-->
-                                            <!--grid-post-item-->
-                                            <div class="col-md-4">
-                                                <div class="grid-post-item  bold_gpi fl-wrap">
-                                                    <div class="grid-post-media">
-                                                        <a href="post-single.html" class="gpm_link">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/17.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Cinitimes</span>
-                                                    </div>
-                                                    <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Politics</a> -->
-
-                                                </div>
-                                            </div>
-                                            <!--grid-post-item end-->
-                                            <!--grid-post-item-->
-                                            <div class="col-md-4">
-                                                <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                    <div class="grid-post-media">
-                                                        <a href="post-single.html" class="gpm_link">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/3.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Cinitimes</span>
-                                                    </div>
-                                                    <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Business</a> -->
-
-                                                </div>
-                                            </div>
-                                            <!--grid-post-item end-->
-                                            <!--grid-post-item-->
-                                            <div class="col-md-4">
-                                                <div class="grid-post-item  bold_gpi fl-wrap">
-                                                    <div class="grid-post-media">
-                                                        <a href="post-single.html" class="gpm_link">
-                                                            <div class="bg-wrap">
-                                                                <div class="bg" data-bg="images/all/19.jpg"></div>
-                                                            </div>
-                                                        </a>
-                                                        <span class="post-media_title">&copy; Cinitimes</span>
-                                                    </div>
-                                                    <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Science</a> -->
-
-                                                </div>
-                                            </div>
                                             <!--grid-post-item end-->
                                         </div>
                                     </div>
@@ -382,13 +308,13 @@ z-index: 9999;
 
                                     <script class="jsbin"
                                         src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                                    <div class="file-upload col-md-12" style="width: 100%;">
+                                    <div id="image-upload" class="file-upload col-md-12" style="width: 100%;">
                                         <button class="file-upload-btn" type="button"
                                             onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
                                         <div class="image-upload-wrap">
-                                            <input class="file-upload-input" type='file' onchange="readURL(this);"
-                                                accept="image/*" />
+                                            <input id="image-input" class="file-upload-input" type='file'
+                                                onchange="readURL(this);" accept="image/*" />
                                             <div class="drag-text">
                                                 <h3 style="color: black; margin-top: 20px;">Drag and drop a file or
                                                     select add Image</h3>
@@ -397,25 +323,16 @@ z-index: 9999;
                                         <div class="file-upload-content">
                                             <img class="file-upload-image" src="#" alt="your image" />
                                             <div class="image-title-wrap">
+                                                <button
+                                                    style="background: #ecbf41; color: black; border-bottom: 0px; margin-right: 1rem;"
+                                                    type="button" onclick="onImageUpload()"
+                                                    class="remove-image">Upload</button>
                                                 <button type="button" onclick="removeUpload()"
-                                                    class="remove-image">Remove <span class="image-title">Uploaded
-                                                        Image</span></button>
+                                                    style="background: red; border-bottom: 0px;"
+                                                    class="remove-image">Remove</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <!--grid-post-wrap end-->
-                                    <!-- <div class="clearfix"></div> -->
-                                    <!-- <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div> -->
-                                    <!--pagination-->
-                                    <!-- <div class="pagination">
-                                            <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i></a>
-                                            <a href="#">01.</a>
-                                            <a href="#" class="current-page">02.</a>
-                                            <a href="#">03.</a>
-                                            <a href="#">04.</a>
-                                            <a href="#" class="nextposts-link"><i class="fas fa-caret-right"></i></a>
-                                        </div> -->
-                                    <!--pagination end-->
                                 </div>
                             </div>
 

@@ -13,6 +13,28 @@ $(document).ready(function () {
         $("#recname").text(user_data.fname + " " + user_data.lname);
         $("#recabout").text(user_data.about);
         $("#recimage").attr("src", user_data.imageUrl);
+        try {
+          Object.values(user_data.images).forEach(function (val) {
+            $("#post-section").append(
+              `<div class="col-md-4">
+                  <div class="grid-post-item  bold_gpi  fl-wrap">
+                      <div class="grid-post-media">
+                          <a href="post-single.html" class="gpm_link">
+                              <div class="bg-wrap">
+                                  <img src="${val}"></img>
+                              </div>
+                          </a>
+                          <span class="post-media_title">&copy; Cinitimes</span>
+                      </div>
+                  </div>
+                </div>`
+            );
+          });
+        } catch (e) {
+          $("#post-section").append(
+            `<h2 style="text-align: center"> User doesn't have any posts.</h2>`
+          );
+        }
       } else {
         console.log("No data available");
       }
@@ -63,3 +85,16 @@ $(document).ready(function () {
       window.hideLoading();
     });
 });
+
+`<div class="col-md-4">
+  <div class="grid-post-item  bold_gpi  fl-wrap">
+      <div class="grid-post-media">
+          <a href="post-single.html" class="gpm_link">
+              <div class="bg-wrap">
+                  <div class="bg" data-bg="images/all/16.jpg"></div>
+              </div>
+          </a>
+          <span class="post-media_title">&copy; Cinitimes</span>
+      </div>
+  </div>
+</div>`;

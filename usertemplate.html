@@ -369,68 +369,49 @@ z-index: 9999;
                                 </div>
                                 <!--grid-post-wrap-->
                                 <div class="grid-post-wrap">
-                                    <div class="row">
+                                    <div id="post-section" class="row">
                                         <!--grid-post-item-->
-                                        <div class="col-md-4">
-                                            <div class="grid-post-item  bold_gpi  fl-wrap">
-                                                <div class="grid-post-media">
-                                                    <a class="gpm_link">
-                                                        <div class="bg-wrap">
-                                                            <div class="bg" data-bg="images/imageadd.jpg"></div>
-                                                        </div>
-                                                    </a>
-                                                    <span class="post-media_title">&copy; Cinitimes</span>
-                                                </div>
-                                                <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Science</a> -->
 
-                                            </div>
-                                        </div>
                                         <!--grid-post-item end-->
-                                        <!--grid-post-item-->
-                                        <div class="col-md-4">
-                                            <div class="grid-post-item  bold_gpi fl-wrap">
-                                                <div class="grid-post-media">
-                                                    <a id="add-talent-image" href="#" class="gpm_link">
-                                                        <div class="bg-wrap">
-                                                            <div class="bg" data-bg="images/all/xyz.png"></div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <!-- <a class="post-category-marker purp-bg"
-                                                        href="category.html">Politics</a> -->
+                                    </div>
+                                </div>
 
-                                            </div>
+                                <script class="jsbin"
+                                    src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                                <div id="image-upload" class="file-upload col-md-12" style="width: 100%;">
+                                    <button class="file-upload-btn" type="button"
+                                        onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+                                    <div class="image-upload-wrap">
+                                        <input id="image-input" class="file-upload-input" type='file'
+                                            onchange="readURL(this);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3
+                                                style="color: black; margin-top: 20px; font-size: 1.5em;margin-bottom: 0.6666em; font-weight: 600; line-height: 1.125;">
+                                                Drag and drop a file or
+                                                select add Image</h3>
                                         </div>
-                                        <!--grid-post-item end-->
+                                    </div>
+                                    <div class="file-upload-content">
+                                        <img class="file-upload-image" src="#" alt="your image" />
+                                        <div class="image-title-wrap">
+                                            <button
+                                                style="background: #ecbf41; color: black; border-bottom: 0px; margin-right: 1rem;"
+                                                type="button" onclick="onImageUpload()"
+                                                class="remove-image">Upload</button>
+                                            <button type="button" onclick="removeUpload()"
+                                                style="background: red; border-bottom: 0px;"
+                                                class="remove-image">Remove</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12" style="margin-top: 30px;">
                                     <div class=" fl-wrap">
                                         <div class="pr-subtitle prs_big">About me</div>
-                                        <p id="talentabout">I am Astha Sethi - a model, theatre artist and aspiring
-                                            actor from
-                                            Bikaner, Rajasthan. I have been active in the TVCs - performed for
-                                            Manyavar, KBC Promo, DHFL Home loans, Big Bazaar, an episode from Ladies
-                                            Special TV Serial, a web series 'Pawan Pooja' on MX Player, been in the
-                                            top 7 finalists at a beauty pageant 'Miss Opera India Global 2018', a
-                                            winner at 'Face of FTC Talent 2019'.</p>
+                                        <p id="talentabout"></p>
                                         <!-- contact form  end-->
                                     </div>
                                 </div>
-                                <!--grid-post-wrap end-->
-                                <!-- <div class="clearfix"></div> -->
-                                <!-- <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div> -->
-                                <!--pagination-->
-                                <!-- <div class="pagination">
-                                            <a href="#" class="prevposts-link"><i class="fas fa-caret-left"></i></a>
-                                            <a href="#">01.</a>
-                                            <a href="#" class="current-page">02.</a>
-                                            <a href="#">03.</a>
-                                            <a href="#">04.</a>
-                                            <a href="#" class="nextposts-link"><i class="fas fa-caret-right"></i></a>
-                                        </div> -->
-                                <!--pagination end-->
                             </div>
                         </div>
                     </div>

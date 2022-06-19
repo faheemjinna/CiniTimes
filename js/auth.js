@@ -77,12 +77,13 @@ auth.onAuthStateChanged((user) => {
         currentUser["uid"] = user.uid;
       }
     });
-  if (lastPath == "rectemplate.html") {
+  if (lastPath == "rectemplate.html" || lastPath == "usertemplate.html") {
     let searchParams = new URLSearchParams(window.location.search);
     let userId = searchParams.get("id");
     console.log(currentUser);
     if (currentUser.uid != userId) {
       $("#add-event-form").hide();
+      $("#image-upload").hide();
     }
   }
 });
@@ -457,3 +458,27 @@ $("#event-submit").on("click", function () {
     window.location.reload();
   });
 });
+
+function onImageUpload() {
+  var userImageUrl;
+
+  const formData = new FormData();
+  formData.append("file", document.getElementById("image-input").files[0]);
+  formData.append("upload_preset", "fienawq5");
+  fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((data) => {
+      userImageUrl = JSON.parse(data).url;
+      var imageListRef = database.ref("users/" + currentUser.uid + "/images");
+      var newImageRef = imageListRef.push();
+      newImageRef.set(userImageUrl).then(function () {
+        alert("Image Sucessfully Posted!");
+        window.location.reload();
+      });
+    });
+}
