@@ -346,11 +346,13 @@ blockquote:before {
   margin-left: 24px;
   border-left: 1px solid #000;
   text-align: center;
+  left: -60px;
   box-sizing: border-box;
   font-weight: 600;
 }
 .search_btn {
   border-right: 1px solid #000;
+  
 }
 .show-cart i,
 .srf_btn i,
@@ -5318,7 +5320,7 @@ h4.cart-title span {
     position: relative;
     display: block;
     border-left: 1px solid #000;
-    left: 24px;
+    left: -40px;
     margin-right: 20px;
   }
   .nav-button {
