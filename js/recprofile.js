@@ -68,7 +68,7 @@ $(document).ready(function () {
                         style="color: black;">Posted on: </a>${data.postedOn}</p>
                 <p style="margin-top: -15px; text-align: justify;"><a
                         style="color: black;">Expiry on: </a>${data.expiryOn}</p>
-                <p style="margin-top: -15px; text-align: justify;"><a
+                <p style="margin-top: -15px; text-align: justify; height: 150px; overflow: scroll;"><a
                         style="color: black;">Project Description: </a>${data.description}</p>
                 <div class="subcribe-form fl-wrap textcenter">
                     <button type="submit" id="contact-button" onclick="openRecruiter('${data.ownerUid}')"
