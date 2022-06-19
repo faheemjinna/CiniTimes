@@ -17,10 +17,10 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 var currentUser;
-var currentUserRole;
 
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
+  var lastPath = window.location.pathname.split("/").pop();
   if (user == null) {
     $("#show-reg-form").show();
     $("#log-out").hide();
@@ -28,10 +28,10 @@ auth.onAuthStateChanged((user) => {
     $("#talent-search-button").hide();
     $("#audition-button").hide();
     $("#pricing-button").hide();
-    var lastPath = window.location.pathname.split("/").pop();
     if (
       lastPath == "TalentSearch.html" ||
       lastPath == "usertemplate.html" ||
+      lastPath == "rectemplate.html" ||
       lastPath == "EventList.html" ||
       lastPath == "pricing.html"
     ) {
@@ -66,6 +66,25 @@ auth.onAuthStateChanged((user) => {
       });
   }
   currentUser = user;
+  database
+    .ref()
+    .child("users")
+    .child(user.uid)
+    .get()
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        currentUser = snapshot.val();
+        currentUser["uid"] = user.uid;
+      }
+    });
+  if (lastPath == "rectemplate.html") {
+    let searchParams = new URLSearchParams(window.location.search);
+    let userId = searchParams.get("id");
+    console.log(currentUser);
+    if (currentUser.uid != userId) {
+      $("#add-event-form").hide();
+    }
+  }
 });
 
 $("#user-profile").on("click", function () {
@@ -313,7 +332,6 @@ function talentSaveToDB(response) {
         paymentId: response.razorpay_payment_id,
         paymentDate: new Date().getTime(),
       };
-      console.log(document.getElementById("talentprofileimage").file);
 
       // Push to Firebase Database
       try {
@@ -414,3 +432,28 @@ function recruitSaveToDB(response) {
         });
     });
 }
+
+$("#event-submit").on("click", function () {
+  var event_data = {
+    title: document.getElementById("event_title").value,
+    postedOn: new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(
+      new Date()
+    ),
+    expiryOn: new Intl.DateTimeFormat("en-GB", { dateStyle: "long" }).format(
+      new Date().getTime() + 30 * 24 * 60 * 60 * 1000
+    ),
+    duration: document.getElementById("event_duration").value,
+    description: document.getElementById("event-desp").value,
+    role: document.getElementById("event_role").value,
+    ownerUid: currentUser.uid,
+    ownerName: currentUser.fname + " " + currentUser.lname,
+    ownerImageUrl: currentUser.imageUrl,
+  };
+  // Create a new post reference with an auto-generated id
+  var eventListRef = database.ref("events");
+  var newEventRef = eventListRef.push();
+  newEventRef.set(event_data).then(function () {
+    alert("Event Sucessfully Posted!");
+    window.location.reload();
+  });
+});

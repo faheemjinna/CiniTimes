@@ -1,33 +1,13 @@
 $(document).ready(function () {
   window.showLoading();
-  let searchParams = new URLSearchParams(window.location.search);
-  let userId = searchParams.get("id");
-  const dbRef = firebase.database().ref();
-  dbRef
-    .child("users")
-    .child(userId)
-    .get()
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        var user_data = snapshot.val();
-        $("#recname").text(user_data.fname + " " + user_data.lname);
-        $("#recabout").text(user_data.about);
-        $("#recimage").attr("src", user_data.imageUrl);
-      } else {
-        console.log("No data available");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  dbRef
-    .child("events")
+  const ref = firebase.database().ref("events");
+  ref
     .once("value", (snapshot) => {
       snapshot.forEach((childSnapshot) => {
         var data = childSnapshot.val();
-        if (data.ownerUid == userId) {
-          $("#card-section").append(
-            `<div class="card-flex friend-card col-md-4">
+        console.log("Hi");
+        $("#card-section").append(
+          `<div class="card-flex friend-card col-md-4">
             <div class="star-friend is-active">
                 <i data-feather="star"></i>
             </div>
@@ -55,11 +35,14 @@ $(document).ready(function () {
                 </div>
             </div>
         </div>`
-          );
-        }
+        );
       });
     })
     .then(() => {
       window.hideLoading();
     });
 });
+
+function openRecruiter(id) {
+  window.location.href = "rectemplate.html?id=" + id;
+}
