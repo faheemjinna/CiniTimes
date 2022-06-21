@@ -19,7 +19,7 @@ $(document).ready(function () {
               `<div class="col-md-4">
                   <div class="grid-post-item  bold_gpi  fl-wrap">
                       <div class="grid-post-media">
-                          <a href="post-single.html" class="gpm_link">
+                          <a class="gpm_link">
                               <div class="bg-wrap">
                                   <img src="${val}"></img>
                               </div>
