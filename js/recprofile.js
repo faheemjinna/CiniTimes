@@ -14,14 +14,14 @@ $(document).ready(function () {
         $("#recabout").text(user_data.about);
         $("#recimage").attr("src", user_data.imageUrl);
         try {
-          Object.values(user_data.images).forEach(function (val) {
+          for (val in user_data.images) {
             $("#post-section").append(
               `<div class="col-md-4">
                   <div class="grid-post-item  bold_gpi  fl-wrap">
                       <div class="grid-post-media">
-                          <a class="gpm_link">
+                          <a class="gpm_link" onclick="onImageDelete('${val}')">
                               <div class="bg-wrap">
-                                  <img src="${val}"></img>
+                                  <img src="${user_data.images[val]}"></img>
                               </div>
                           </a>
                           <span class="post-media_title">&copy; Cinitimes</span>
@@ -29,7 +29,7 @@ $(document).ready(function () {
                   </div>
                 </div>`
             );
-          });
+          }
         } catch (e) {
           $("#post-section").append(
             `<h2 style="text-align: center"> User doesn't have any posts.</h2>`

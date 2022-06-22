@@ -461,24 +461,44 @@ $("#event-submit").on("click", function () {
 
 function onImageUpload() {
   var userImageUrl;
-
   const formData = new FormData();
   formData.append("file", document.getElementById("image-input").files[0]);
   formData.append("upload_preset", "fienawq5");
-  fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => {
-      return response.text();
+  try {
+    window.showLoading();
+    fetch("https://api.cloudinary.com/v1_1/dsodqyejz/image/upload", {
+      method: "POST",
+      body: formData,
     })
-    .then((data) => {
-      userImageUrl = JSON.parse(data).url;
-      var imageListRef = database.ref("users/" + currentUser.uid + "/images");
-      var newImageRef = imageListRef.push();
-      newImageRef.set(userImageUrl).then(function () {
-        alert("Image Sucessfully Posted!");
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        userImageUrl = JSON.parse(data).url;
+        var imageListRef = database.ref("users/" + currentUser.uid + "/images");
+        var newImageRef = imageListRef.push();
+        newImageRef.set(userImageUrl).then(function () {
+          alert("Image Sucessfully Posted!");
+          window.location.reload();
+        });
+      });
+  } catch (error) {
+    alert("Image cannot be uploaded! Try using a different image.");
+  }
+}
+
+function onImageDelete(imageId) {
+  try {
+    window.showLoading();
+    var imageListRef = database.ref("users/" + currentUser.uid + "/images");
+    imageListRef
+      .child(imageId)
+      .remove()
+      .then(function () {
+        alert("Image Sucessfully Deleted!");
         window.location.reload();
       });
-    });
+  } catch (e) {
+    alert("Cannot Delete Image! Please Try again later.");
+  }
 }
