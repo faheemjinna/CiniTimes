@@ -24,7 +24,6 @@ auth.onAuthStateChanged((user) => {
   if (user == null) {
     $("#show-reg-form").show();
     $("#log-out").hide();
-    $("#user-profile").hide();
     $("#talent-search-button").hide();
     $("#audition-button").hide();
     $("#pricing-button").hide();
@@ -37,46 +36,43 @@ auth.onAuthStateChanged((user) => {
     ) {
       window.location.href = "404.html";
     }
+    window.hideLoading();
   } else {
+    window.showLoading();
+    currentUser = user;
     $("#show-reg-form").hide();
     $("#log-out").show();
     $("#user-profile").show();
     database
-      .ref("users/" + user.uid)
+      .ref()
+      .child("users")
+      .child(user.uid)
       .get()
       .then((snapshot) => {
         if (snapshot.exists()) {
-          console.log(snapshot.val().registrationStatus);
-          if (snapshot.val().registrationStatus === "Talent") {
+          currentUser = snapshot.val();
+          currentUser["uid"] = user.uid;
+          if (currentUser.registrationStatus === "Talent") {
             $("#talent-search-button").hide();
             $("#audition-button").show();
             $("#pricing-button").hide();
-            currentUserRole = "Talent";
-          } else if (snapshot.val().registrationStatus === "Recruiter") {
+            $("#profile-icon").attr("src", "images/talent.png");
+          } else if (currentUser.registrationStatus === "Recruiter") {
             $("#audition-button").hide();
             $("#talent-search-button").show();
             $("#pricing-button").hide();
-            currentUserRole = "Recruiter";
+            $("#profile-icon").attr("src", "images/recruit.png");
+            console.log("Hi");
           } else {
             $("#talent-search-button").hide();
             $("#audition-button").hide();
             $("#pricing-button").show();
+            $("#sub-icon").attr("src", "images/talent.png");
           }
         }
+        window.hideLoading();
       });
   }
-  currentUser = user;
-  database
-    .ref()
-    .child("users")
-    .child(user.uid)
-    .get()
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        currentUser = snapshot.val();
-        currentUser["uid"] = user.uid;
-      }
-    });
   if (lastPath == "rectemplate.html" || lastPath == "usertemplate.html") {
     let searchParams = new URLSearchParams(window.location.search);
     let userId = searchParams.get("id");
@@ -89,7 +85,8 @@ auth.onAuthStateChanged((user) => {
 });
 
 $("#user-profile").on("click", function () {
-  if (currentUserRole == "Talent")
+  if (currentUser == null) showModal();
+  if (currentUser.registrationStatus == "Talent")
     window.location.href = "usertemplate.html?id=" + currentUser.uid;
   else window.location.href = "rectemplate.html?id=" + currentUser.uid;
 });
@@ -136,7 +133,7 @@ $("#main-register-form").on("submit", function (e) {
           if (error) console.log(error);
           else {
             window.location.href = "pricing.html";
-            window.hideLoading;
+            window.hideLoading();
           }
         })
       );

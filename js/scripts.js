@@ -354,14 +354,6 @@ function initCiniTimes() {
   $("#show-reg-form").on("click", function () {
     showModal();
   });
-  function showModal() {
-    $(".main-register-container").fadeIn(1);
-    $(".main-register-wrap").addClass("vis_mr");
-  }
-  function hideModal() {
-    $(".main-register-container").fadeOut(1);
-    $(".main-register-wrap").removeClass("vis_mr");
-  }
   $(".close-reg-form").on("click", function () {
     hideModal();
   });
@@ -776,41 +768,45 @@ document.addEventListener("gesturestart", function (e) {
 
 // Init all functions------------------
 jQuery(function () {
-  if (window.location.pathname.split("/").pop() == "usertemplate.html") {
-  } else window.hideLoading();
   initCiniTimes();
 });
 
-
 function readURL(input) {
   if (input.files && input.files[0]) {
-
     var reader = new FileReader();
 
-    reader.onload = function(e) {
-      $('.image-upload-wrap').hide();
+    reader.onload = function (e) {
+      $(".image-upload-wrap").hide();
 
-      $('.file-upload-image').attr('src', e.target.result);
-      $('.file-upload-content').show();
+      $(".file-upload-image").attr("src", e.target.result);
+      $(".file-upload-content").show();
 
-      $('.image-title').html(input.files[0].name);
+      $(".image-title").html(input.files[0].name);
     };
 
     reader.readAsDataURL(input.files[0]);
-
   } else {
     removeUpload();
   }
 }
 
 function removeUpload() {
-  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-  $('.file-upload-content').hide();
-  $('.image-upload-wrap').show();
+  $(".file-upload-input").replaceWith($(".file-upload-input").clone());
+  $(".file-upload-content").hide();
+  $(".image-upload-wrap").show();
 }
-$('.image-upload-wrap').bind('dragover', function () {
-    $('.image-upload-wrap').addClass('image-dropping');
-  });
-  $('.image-upload-wrap').bind('dragleave', function () {
-    $('.image-upload-wrap').removeClass('image-dropping');
+$(".image-upload-wrap").bind("dragover", function () {
+  $(".image-upload-wrap").addClass("image-dropping");
 });
+$(".image-upload-wrap").bind("dragleave", function () {
+  $(".image-upload-wrap").removeClass("image-dropping");
+});
+
+function showModal() {
+  $(".main-register-container").fadeIn(1);
+  $(".main-register-wrap").addClass("vis_mr");
+}
+function hideModal() {
+  $(".main-register-container").fadeOut(1);
+  $(".main-register-wrap").removeClass("vis_mr");
+}
