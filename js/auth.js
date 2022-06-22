@@ -24,17 +24,13 @@ auth.onAuthStateChanged((user) => {
   if (user == null) {
     $("#show-reg-form").show();
     $("#log-out").hide();
-    $("#talent-search-button").hide();
-    $("#audition-button").hide();
-    $("#pricing-button").hide();
     if (
       lastPath == "TalentSearch.html" ||
       lastPath == "usertemplate.html" ||
       lastPath == "rectemplate.html" ||
-      lastPath == "EventList.html" ||
-      lastPath == "pricing.html"
+      lastPath == "EventList.html"
     ) {
-      window.location.href = "404.html";
+      window.location.href = "pricing.html";
     }
     window.hideLoading();
   } else {
@@ -42,7 +38,6 @@ auth.onAuthStateChanged((user) => {
     currentUser = user;
     $("#show-reg-form").hide();
     $("#log-out").show();
-    $("#user-profile").show();
     database
       .ref()
       .child("users")
@@ -53,20 +48,24 @@ auth.onAuthStateChanged((user) => {
           currentUser = snapshot.val();
           currentUser["uid"] = user.uid;
           if (currentUser.registrationStatus === "Talent") {
-            $("#talent-search-button").hide();
-            $("#audition-button").show();
-            $("#pricing-button").hide();
+            if (lastPath == "TalentSearch.html")
+              window.location.href = "pricing.html";
+            $("#free-button").parent().css("background-color", "grey");
+            $("#free-button").css("background-color", "grey");
+            $("#talent-button").css("background-color", "grey");
+            $("#talent-button").parent().css("background-color", "grey");
+            $("#talent-button").text("Registered");
             $("#profile-icon").attr("src", "images/talent.png");
           } else if (currentUser.registrationStatus === "Recruiter") {
-            $("#audition-button").hide();
-            $("#talent-search-button").show();
-            $("#pricing-button").hide();
-            $("#profile-icon").attr("src", "images/recruit.png");
-            console.log("Hi");
+            if (lastPath == "EventList.html")
+              window.location.href = "pricing.html";
+            $("#profile-icon").css("src", "images/recruit.png");
+            $("#recruit-button").css("background-color", "grey");
+            $("#recruit-button").parent().css("background-color", "grey");
+            $("#recruit-button").text("Registered");
+            $("#free-button").parent().css("background-color", "grey");
+            $("#free-button").css("background-color", "grey");
           } else {
-            $("#talent-search-button").hide();
-            $("#audition-button").hide();
-            $("#pricing-button").show();
             $("#sub-icon").attr("src", "images/talent.png");
           }
         }
@@ -82,6 +81,24 @@ auth.onAuthStateChanged((user) => {
       $("#image-upload").hide();
     }
   }
+});
+
+$("#talent-button").on("click", function () {
+  if (currentUser == null) showModal();
+  else if (currentUser.registrationStatus != "Talent")
+    window.location = "talentreg.html";
+});
+
+$("#recruit-button").on("click", function () {
+  if (currentUser == null) showModal();
+  else if (currentUser.registrationStatus != "Recruiter")
+    window.location = "recruiterreg.html";
+});
+
+$("#free-button").on("click", function () {
+  if (currentUser == null) showModal();
+  else if (currentUser.registrationStatus == "Free")
+    window.location = "index.html";
 });
 
 $("#user-profile").on("click", function () {
@@ -192,6 +209,7 @@ $("#main-login-form").on("submit", function (e) {
 // Set up Log out Fuction
 $("#log-out").on("click", function () {
   auth.signOut();
+  window.location.reload();
 });
 
 $("#talent-pay-now").on("click", function (e) {
