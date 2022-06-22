@@ -485,17 +485,19 @@ function onImageUpload() {
 }
 
 function onImageDelete(imageId) {
-  try {
-    window.showLoading();
-    var imageListRef = database.ref("users/" + currentUser.uid + "/images");
-    imageListRef
-      .child(imageId)
-      .remove()
-      .then(function () {
-        alert("Image Sucessfully Deleted!");
-        window.location.reload();
-      });
-  } catch (e) {
-    alert("Cannot Delete Image! Please Try again later.");
+  if (confirm("Do you want to Delete that Post?") == true) {
+    try {
+      window.showLoading();
+      var imageListRef = database.ref("users/" + currentUser.uid + "/images");
+      imageListRef
+        .child(imageId)
+        .remove()
+        .then(function () {
+          alert("Image Sucessfully Deleted!");
+          window.location.reload();
+        });
+    } catch (e) {
+      alert("Cannot Delete Image! Please Try again later.");
+    }
   }
 }
