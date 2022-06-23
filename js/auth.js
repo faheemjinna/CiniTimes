@@ -67,6 +67,14 @@ auth.onAuthStateChanged((user) => {
             $("#free-button").css("background-color", "grey");
           } else {
             $("#sub-icon").attr("src", "images/talent.png");
+            if (
+              lastPath == "TalentSearch.html" ||
+              lastPath == "usertemplate.html" ||
+              lastPath == "rectemplate.html" ||
+              lastPath == "EventList.html"
+            ) {
+              window.location.href = "pricing.html";
+            }
           }
         }
         window.hideLoading();
@@ -503,19 +511,23 @@ function onImageUpload() {
 }
 
 function onImageDelete(imageId) {
-  if (confirm("Do you want to Delete that Post?") == true) {
-    try {
-      window.showLoading();
-      var imageListRef = database.ref("users/" + currentUser.uid + "/images");
-      imageListRef
-        .child(imageId)
-        .remove()
-        .then(function () {
-          alert("Image Sucessfully Deleted!");
-          window.location.reload();
-        });
-    } catch (e) {
-      alert("Cannot Delete Image! Please Try again later.");
+  let searchParams = new URLSearchParams(window.location.search);
+  let userId = searchParams.get("id");
+  if (currentUser.uid == userId) {
+    if (confirm("Do you want to Delete that Post?") == true) {
+      try {
+        window.showLoading();
+        var imageListRef = database.ref("users/" + currentUser.uid + "/images");
+        imageListRef
+          .child(imageId)
+          .remove()
+          .then(function () {
+            alert("Image Sucessfully Deleted!");
+            window.location.reload();
+          });
+      } catch (e) {
+        alert("Cannot Delete Image! Please Try again later.");
+      }
     }
   }
 }
