@@ -352,8 +352,18 @@ function talentSaveToDB(response) {
         inst: document.getElementById("talentinst").value,
         expertise: document.getElementById("talentexpertise").value,
         availability: document.getElementById("talentavailability").value,
+        languagesKnown: document.getElementById("talentlang").value,
         imageUrl: userImageUrl,
         aboutMe: document.getElementById("talentabout").value,
+        contactType: document.getElementById("talentcontacttype").value,
+        facebook:
+          document.getElementById("talentfacebook").value == ""
+            ? "NA"
+            : document.getElementById("talentfacebook").value,
+        instagram:
+          document.getElementById("talentinstagram").value == ""
+            ? "NA"
+            : document.getElementById("talentinstagram").value,
         registrationStatus: "Talent",
         paymentId: response.razorpay_payment_id,
         paymentDate: new Date().getTime(),

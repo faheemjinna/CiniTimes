@@ -24,12 +24,24 @@ $(document).ready(function () {
         $("#talentbiceps").text(user_data.biceps + " inches");
         $("#talenthairtype").text(user_data.hairtype);
         $("#talentexpertise").text(user_data.expertise);
+        $("#talentlang").text(user_data.languagesKnown);
+        console.log(user_data.languagesKnown);
         $("#talentlocation").text(
           user_data.city + ", " + user_data.state + ", " + user_data.country
         );
         $("#talentavailability").text(user_data.availability);
         $("#talentabout").text(user_data.aboutMe);
         $("#talentprofileimage").attr("src", user_data.imageUrl);
+        var contactType = user_data.contactType;
+        if (contactType == "whatsapp")
+          $("#contact-button").attr("href", "https://wa.me/" + user_data.phone);
+        else if (contactType == "phone")
+          $("#contact-button").attr("href", "tel:" + user_data.phone);
+        else $("#contact-button").attr("href", "mailto:" + user_data.email);
+        if (user_data.facebook == "NA") $("#talentfacebook").hide();
+        else $("#talentfacebook").children().attr("href", user_data.facebook);
+        if (user_data.instagram == "NA") $("#talentinstagram").hide();
+        else $("#talentinstagram").children().attr("href", user_data.instagram);
         try {
           for (val in user_data.images) {
             $("#post-section").append(
