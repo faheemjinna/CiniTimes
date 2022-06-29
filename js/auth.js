@@ -59,14 +59,15 @@ auth.onAuthStateChanged((user) => {
           } else if (currentUser.registrationStatus === "Recruiter") {
             if (lastPath == "EventList.html")
               window.location.href = "pricing.html";
-            $("#profile-icon").css("src", "images/recruit.png");
+            console.log("hi");
+            $("#profile-icon").attr("src", "images/recruit.png");
             $("#recruit-button").css("background-color", "grey");
             $("#recruit-button").parent().css("background-color", "grey");
             $("#recruit-button").text("Registered");
             $("#free-button").parent().css("background-color", "grey");
             $("#free-button").css("background-color", "grey");
           } else {
-            $("#sub-icon").attr("src", "images/talent.png");
+            $("#sub-icon").attr("src", "images/sub.png");
             if (
               lastPath == "TalentSearch.html" ||
               lastPath == "usertemplate.html" ||
@@ -83,10 +84,11 @@ auth.onAuthStateChanged((user) => {
   if (lastPath == "rectemplate.html" || lastPath == "usertemplate.html") {
     let searchParams = new URLSearchParams(window.location.search);
     let userId = searchParams.get("id");
-    console.log(currentUser);
     if (currentUser.uid != userId) {
       $("#add-event-form").hide();
       $("#image-upload").hide();
+    } else {
+      $(".event-button").text("Delete");
     }
   }
 });
@@ -350,8 +352,18 @@ function talentSaveToDB(response) {
         inst: document.getElementById("talentinst").value,
         expertise: document.getElementById("talentexpertise").value,
         availability: document.getElementById("talentavailability").value,
+        languagesKnown: document.getElementById("talentlang").value,
         imageUrl: userImageUrl,
         aboutMe: document.getElementById("talentabout").value,
+        contactType: document.getElementById("talentcontacttype").value,
+        facebook:
+          document.getElementById("talentfacebook").value == ""
+            ? "NA"
+            : document.getElementById("talentfacebook").value,
+        instagram:
+          document.getElementById("talentinstagram").value == ""
+            ? "NA"
+            : document.getElementById("talentinstagram").value,
         registrationStatus: "Talent",
         paymentId: response.razorpay_payment_id,
         paymentDate: new Date().getTime(),
@@ -527,6 +539,37 @@ function onImageDelete(imageId) {
           });
       } catch (e) {
         alert("Cannot Delete Image! Please Try again later.");
+      }
+    }
+  }
+}
+
+function eventButtonFunction() {
+  let searchParams = new URLSearchParams(window.location.search);
+  let userId = searchParams.get("id");
+  console.log(currentUser);
+  if (currentUser.uid == userId) {
+    $(".event-button").text("Delete");
+  }
+}
+
+function onEventDelete(eventId) {
+  let searchParams = new URLSearchParams(window.location.search);
+  let userId = searchParams.get("id");
+  if (currentUser.uid == userId) {
+    if (confirm("Do you want to Delete that Event?") == true) {
+      try {
+        window.showLoading();
+        var eventListRef = database.ref("events");
+        eventListRef
+          .child(eventId)
+          .remove()
+          .then(function () {
+            alert("Event Sucessfully Deleted!");
+            window.location.reload();
+          });
+      } catch (e) {
+        alert("Cannot Delete Event! Please Try again later.");
       }
     }
   }

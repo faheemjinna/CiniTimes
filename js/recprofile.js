@@ -71,8 +71,8 @@ $(document).ready(function () {
                 <p style="margin-top: -15px; text-align: justify; height: 150px; overflow: scroll;"><a
                         style="color: black;">Project Description: </a>${data.description}</p>
                 <div class="subcribe-form fl-wrap textcenter">
-                    <button type="submit" id="contact-button" onclick="openRecruiter('${data.ownerUid}')"
-                        class="subscribe-button color-bg" style="width: 110px;">Contact
+                    <button id="${childSnapshot.key}" onclick="onEventDelete('${childSnapshot.key}')"
+                        class="subscribe-button color-bg event-button" style="width: 110px;">Contact
                     </button>
                 </div>
             </div>
@@ -82,6 +82,7 @@ $(document).ready(function () {
       });
     })
     .then(() => {
+      eventButtonFunction();
       window.hideLoading();
     });
 });
