@@ -1751,7 +1751,7 @@ section {
 }
 /*------ footer-------------------------------------------------*/
 .main-footer {
-  background: #222;
+  background: #292929;
   padding: 80px 0 0;
 }
 .footer-widget-title {
@@ -1769,7 +1769,7 @@ section {
 .footer-bottom {
   padding: 18px 0;
   margin-top: 70px;
-  background: #191919;
+  background: #000;
 }
 .footer-logo {
   margin-bottom: 34px;
