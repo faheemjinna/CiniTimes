@@ -20,9 +20,9 @@ $(document).ready(function () {
                 <h2 style="font-weight: bold;">${data.title}</h2>
                 <p style=" text-align: justify;"><a style="color: black;">Posted by:
                     </a>${data.ownerName}</p>
-                <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                <p style="margin-top: -15px; text-align: justify;"><a
                         style="color: black;">Duration: </a>${data.duration}</p>
-                <p style="margin-top: -15px; text-align: justify;"><a href="show-reg-form"
+                <p style="margin-top: -15px; text-align: justify;"><a 
                         style="color: black;">Posted on: </a>${data.postedOn}</p>
                 <p style="margin-top: -15px; text-align: justify;"><a
                         style="color: black;">Expiry on: </a>${data.expiryOn}</p>

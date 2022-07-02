@@ -351,12 +351,6 @@ function initCiniTimes() {
     if (swra.hasClass("isShare")) showShare();
     else hideShare();
   });
-  $("#show-reg-form").on("click", function () {
-    showModal();
-  });
-  $(".close-reg-form").on("click", function () {
-    hideModal();
-  });
   // duplicate -----------------
   $.fn.duplicate = function (a, b) {
     var c = [];

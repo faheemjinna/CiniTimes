@@ -34,6 +34,7 @@ auth.onAuthStateChanged((user) => {
     }
     window.hideLoading();
   } else {
+    if (lastPath == "login.html") window.location.href = "index.html";
     window.showLoading();
     currentUser = user;
     $("#show-reg-form").hide();
@@ -94,19 +95,31 @@ auth.onAuthStateChanged((user) => {
 });
 
 $("#talent-button").on("click", function () {
-  if (currentUser == null) showModal();
-  else if (currentUser.registrationStatus != "Talent")
-    window.location = "talentreg.html";
+  if (currentUser == null) window.location.href = "login.html";
+  else if (currentUser.registrationStatus != "Free") {
+    if (
+      confirm(
+        "You can only be a Recruiter or a Talent! Do you want to become a Recuriter Now? (Charges apply)"
+      ) == true
+    )
+      window.location.href = "talentreg.html";
+  } else window.location.href = "talentreg.html";
 });
 
 $("#recruit-button").on("click", function () {
-  if (currentUser == null) showModal();
-  else if (currentUser.registrationStatus != "Recruiter")
-    window.location = "recruiterreg.html";
+  if (currentUser == null) window.location.href = "login.html";
+  else if (currentUser.registrationStatus != "Free") {
+    if (
+      confirm(
+        "You can only be a Recruiter or a Talent! Do you want to become a Recuriter Now? (Charges apply)"
+      ) == true
+    )
+      window.location.href = "recruiterreg.html";
+  } else window.location.href = "recruiterreg.html";
 });
 
 $("#free-button").on("click", function () {
-  if (currentUser == null) showModal();
+  if (currentUser == null) window.location = "login.html";
   else if (currentUser.registrationStatus == "Free")
     window.location = "index.html";
 });
@@ -205,7 +218,7 @@ $("#main-login-form").on("submit", function (e) {
 
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
-      hideModal();
+      window.location.href = "index.html";
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -280,7 +293,7 @@ function validate_field(field) {
 
 function talentPaymentProcess() {
   var options = {
-    key: "rzp_test_Rtlp9ftyeV4dnJ",
+    key: "rzp_live_UnQglSdwH20LwF",
     amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
     currency: "INR",
     name: "Talent Registeration",
@@ -393,7 +406,7 @@ function talentSaveToDB(response) {
 
 function recruitPaymentProcess() {
   var options = {
-    key: "rzp_test_Rtlp9ftyeV4dnJ",
+    key: "rzp_live_UnQglSdwH20LwF",
     amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
     currency: "INR",
     name: "Recruiter Registeration",
