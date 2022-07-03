@@ -79,6 +79,53 @@ auth.onAuthStateChanged((user) => {
             }
           }
         }
+        if (lastPath == "talenteditprofile.html") {
+          document.getElementById("talentfname").value = currentUser.fname;
+          document.getElementById("talentlname").value = currentUser.lname;
+          document.getElementById("talentphone").value = currentUser.phone;
+          document.getElementById("talentprofilename").value =
+            currentUser.profileName;
+          document.getElementById("talentemail").value = currentUser.email;
+          document.getElementById("talentcountry").value = currentUser.country;
+          document.getElementById("talentstate").value = currentUser.state;
+          document.getElementById("talentcity").value = currentUser.city;
+          document.getElementById("talentdepartment").value =
+            currentUser.department;
+          document.getElementById("talentgender").value = currentUser.gender;
+          document.getElementById("talentdob").value = currentUser.dob;
+          document.getElementById("talentage").value = currentUser.age;
+          document.getElementById("talentheight").value = currentUser.height;
+          document.getElementById("talentweight").value = currentUser.weight;
+          document.getElementById("talenteyecolor").value =
+            currentUser.eyecolor;
+          document.getElementById("talenthaircolor").value =
+            currentUser.haircolor;
+          document.getElementById("talenthairtype").value =
+            currentUser.hairtype;
+          document.getElementById("talentbust").value = currentUser.bust;
+          document.getElementById("talenthip").value = currentUser.hip;
+          document.getElementById("talentbiceps").value = currentUser.biceps;
+          document.getElementById("talentchest").value = currentUser.chest;
+          document.getElementById("talentedu").value = currentUser.edu;
+          document.getElementById("talentinst").value = currentUser.inst;
+          document.getElementById("talentexpertise").value =
+            currentUser.expertise;
+          document.getElementById("talentavailability").value =
+            currentUser.availability;
+          document.getElementById("talentlang").value =
+            currentUser.languagesKnown;
+          document.getElementById("talentabout").value = currentUser.aboutMe;
+          document.getElementById("talentcontacttype").value =
+            currentUser.contactType;
+          if (currentUser.facebook != "NA") {
+            document.getElementById("talentfacebook").value =
+              currentUser.facebook;
+          }
+          if (currentUser.instagram != "NA") {
+            document.getElementById("talentinstagram").value =
+              currentUser.instagram;
+          }
+        }
         window.hideLoading();
       });
   }
@@ -88,6 +135,7 @@ auth.onAuthStateChanged((user) => {
     if (currentUser.uid != userId) {
       $("#add-event-form").hide();
       $("#image-upload").hide();
+      $("#contact-button").text("Contact");
     } else {
       $(".event-button").text("Delete");
     }
@@ -129,6 +177,15 @@ $("#user-profile").on("click", function () {
   if (currentUser.registrationStatus == "Talent")
     window.location.href = "usertemplate.html?id=" + currentUser.uid;
   else window.location.href = "rectemplate.html?id=" + currentUser.uid;
+});
+
+$("#contact-button").on("click", function (e) {
+  let searchParams = new URLSearchParams(window.location.search);
+  let userId = searchParams.get("id");
+  if (currentUser.uid == userId) {
+    e.preventDefault();
+    window.location.href = "talenteditprofile.html";
+  }
 });
 
 //Set up Register function
@@ -587,3 +644,63 @@ function onEventDelete(eventId) {
     }
   }
 }
+
+$("#talent-edit-submit").on("click", function (e) {
+  e.preventDefault();
+  window.showLoading();
+  var database_ref = database.ref();
+  var user_data = {
+    fname: document.getElementById("talentfname").value,
+    lname: document.getElementById("talentlname").value,
+    phone: document.getElementById("talentphone").value,
+    profileName: document.getElementById("talentprofilename").value,
+    email: document.getElementById("talentemail").value,
+    country: document.getElementById("talentcountry").value,
+    state: document.getElementById("talentstate").value,
+    city: document.getElementById("talentcity").value,
+    department: document.getElementById("talentdepartment").value,
+    gender: document.getElementById("talentgender").value,
+    dob: document.getElementById("talentdob").value,
+    age: document.getElementById("talentage").value,
+    height: document.getElementById("talentheight").value,
+    weight: document.getElementById("talentweight").value,
+    eyecolor: document.getElementById("talenteyecolor").value,
+    haircolor: document.getElementById("talenthaircolor").value,
+    hairtype: document.getElementById("talenthairtype").value,
+    bust: document.getElementById("talentbust").value,
+    hip: document.getElementById("talenthip").value,
+    biceps: document.getElementById("talentbiceps").value,
+    chest: document.getElementById("talentchest").value,
+    edu: document.getElementById("talentedu").value,
+    inst: document.getElementById("talentinst").value,
+    expertise: document.getElementById("talentexpertise").value,
+    availability: document.getElementById("talentavailability").value,
+    languagesKnown: document.getElementById("talentlang").value,
+    aboutMe: document.getElementById("talentabout").value,
+    contactType: document.getElementById("talentcontacttype").value,
+    facebook:
+      document.getElementById("talentfacebook").value == ""
+        ? "NA"
+        : document.getElementById("talentfacebook").value,
+    instagram:
+      document.getElementById("talentinstagram").value == ""
+        ? "NA"
+        : document.getElementById("talentinstagram").value,
+  };
+
+  // Push to Firebase Database
+  try {
+    database_ref
+      .child("users/" + currentUser.uid)
+      .update(user_data, (error) => {
+        if (error) console.log(error);
+        else {
+          alert("Your Profile has been updated!");
+          window.location.href = "usertemplate.html?id=" + currentUser.uid;
+        }
+      });
+  } catch (error) {
+    alert("Something went Wrong! Try Again.");
+    window.location.href = "index.html";
+  }
+});
