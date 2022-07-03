@@ -48,6 +48,19 @@ auth.onAuthStateChanged((user) => {
         if (snapshot.exists()) {
           currentUser = snapshot.val();
           currentUser["uid"] = user.uid;
+          var days = Math.round(
+            (Date.now() - currentUser.paymentDate) / (1000 * 3600 * 24)
+          );
+          if (currentUser.registrationStatus != "Free" && days >= 365) {
+            if (
+              confirm("Your Subscription Has Ended! Do you want to Renew?") ==
+              true
+            )
+              paymentRenewProcess();
+            else {
+              paymentDenied();
+            }
+          }
           if (currentUser.registrationStatus === "Talent") {
             if (lastPath == "TalentSearch.html")
               window.location.href = "pricing.html";
@@ -60,7 +73,6 @@ auth.onAuthStateChanged((user) => {
           } else if (currentUser.registrationStatus === "Recruiter") {
             if (lastPath == "EventList.html")
               window.location.href = "pricing.html";
-            console.log("hi");
             $("#profile-icon").attr("src", "images/recruit.png");
             $("#recruit-button").css("background-color", "grey");
             $("#recruit-button").parent().css("background-color", "grey");
@@ -225,15 +237,13 @@ $("#main-register-form").on("submit", function (e) {
       };
 
       // Push to Firebase Database
-      console.log(
-        database_ref.child("users/" + user.uid).set(user_data, (error) => {
-          if (error) console.log(error);
-          else {
-            window.location.href = "pricing.html";
-            window.hideLoading();
-          }
-        })
-      );
+      database_ref.child("users/" + user.uid).set(user_data, (error) => {
+        if (error) console.log(error);
+        else {
+          window.location.href = "pricing.html";
+          window.hideLoading();
+        }
+      });
       hideModal();
     })
     .catch(function (error) {
@@ -259,7 +269,6 @@ $("#main-login-form").on("submit", function (e) {
     return;
     // Don't continue running the code
   }
-  console.log(email, password);
   auth
     .signInWithEmailAndPassword(email, password)
     .then(function () {
@@ -267,19 +276,42 @@ $("#main-login-form").on("submit", function (e) {
       var user = auth.currentUser;
       // Add this user to Firebase Database
       var database_ref = database.ref();
+      database
+        .ref()
+        .child("users")
+        .child(user.uid)
+        .get()
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            currentUser = snapshot.val();
+            currentUser["uid"] = user.uid;
+            var days = Math.round(
+              (Date.now() - currentUser.paymentDate) / (1000 * 3600 * 24)
+            );
+            alert(days);
+            if (days >= 365) {
+              alert(
+                "Your Subscription Has Ended! Please Register Again to Continue your Subscription."
+              );
+            }
+            var user_data = {
+              last_login: Date.now(),
+              registrationStatus:
+                days >= 365 ? "Free" : currentUser.registrationStatus,
+              paymentId: days >= 365 ? "NA" : currentUser.paymentId,
+              paymentDate: days >= 365 ? "0" : currentUser.paymentDate,
+            };
 
-      // Create User data
-      var user_data = {
-        last_login: Date.now(),
-      };
-
-      // Push to Firebase Database
-      database_ref.child("users/" + user.uid).update(user_data);
-      window.location.href = "index.html";
+            database_ref
+              .child("users/" + user.uid)
+              .update(user_data)
+              .then(() => {
+                //window.location.href = "index.html";
+              });
+          }
+        });
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
-      var error_code = error.code;
       var error_message = error.message;
 
       alert(error_message);
@@ -300,14 +332,6 @@ $("#talent-pay-now").on("click", function (e) {
 $("#recruit-pay-now").on("click", function (e) {
   e.preventDefault();
   recruitPaymentProcess();
-});
-
-$("#add-talent-image").on("click", function () {
-  let searchParams = new URLSearchParams(window.location.search);
-  let userId = searchParams.get("id");
-  if (currentUser.uid == userId) {
-    console.log("Yes");
-  } else console.log("Not authenticated");
 });
 
 function hideModal() {
@@ -617,7 +641,6 @@ function onImageDelete(imageId) {
 function eventButtonFunction() {
   let searchParams = new URLSearchParams(window.location.search);
   let userId = searchParams.get("id");
-  console.log(currentUser);
   if (currentUser.uid == userId) {
     $(".event-button").text("Delete");
   }
@@ -704,3 +727,64 @@ $("#talent-edit-submit").on("click", function (e) {
     window.location.href = "index.html";
   }
 });
+
+function paymentRenewProcess() {
+  var options = {
+    key: "rzp_live_UnQglSdwH20LwF",
+    amount: 999 * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 means 50000 paise or ₹500.
+    currency: "INR",
+    name: "Renew Subscription",
+    description: "Best Choice you have made this year!",
+    image: "images/logo.png",
+    handler: function (response) {
+      renewUpdateDB(response);
+      //$('#myModal').modal(); Can be used to say a success message
+    },
+    modal: {
+      ondismiss: paymentDenied,
+    },
+    prefill: {
+      name: currentUser.fname + " " + currentUser.lname,
+      email: currentUser.email,
+      contact: currentUser.phone,
+    },
+    theme: {
+      color: "#ff0000",
+    },
+  };
+  var propay = new Razorpay(options);
+  propay.open();
+}
+
+function renewUpdateDB(response) {
+  console.log(response);
+  var database_ref = database.ref();
+  var user_data = {
+    paymentId: response.razorpay_payment_id,
+    paymentDate: new Date().getTime(),
+  };
+
+  // Push to Firebase Database
+  database_ref.child("users/" + currentUser.uid).update(user_data, (error) => {
+    if (error) console.log(error);
+    else {
+      alert("Congratulations! Your Subscription is Sucessfully Renewed!");
+      window.location.href = "index.html";
+    }
+  });
+}
+
+function paymentDenied() {
+  var user_data = {
+    registrationStatus: "Free",
+    paymentId: "NA",
+    paymentDate: "0",
+  };
+  database_ref = database.ref();
+  database_ref
+    .child("users/" + currentUser.uid)
+    .update(user_data)
+    .then(() => {
+      window.location.href = "index.html";
+    });
+}

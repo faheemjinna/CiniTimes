@@ -28,7 +28,6 @@ $(document).ready(function () {
 });
 
 $("div").on("click", "div.friend-card", function (e) {
-  console.log("Hi");
   var id = $(this).attr("id");
   window.location.href = "usertemplate.html?id=" + id;
 });
