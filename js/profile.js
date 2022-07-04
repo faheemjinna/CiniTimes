@@ -25,7 +25,6 @@ $(document).ready(function () {
         $("#talenthairtype").text(user_data.hairtype);
         $("#talentexpertise").text(user_data.expertise);
         $("#talentlang").text(user_data.languagesKnown);
-        console.log(user_data.languagesKnown);
         $("#talentlocation").text(
           user_data.city + ", " + user_data.state + ", " + user_data.country
         );
