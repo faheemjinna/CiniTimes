@@ -3717,7 +3717,7 @@ section {
 .list-post-media a:after,
 .grid-post-media a.gpm_link:after {
   font-family: Font Awesome\5 Pro;
-  content: "\f178"; /*icon-change*/
+  content: "\f2ed"; /*icon-change*/
   position: absolute;
   left: 50%;
   top: 50%;
