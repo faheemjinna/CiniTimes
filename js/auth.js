@@ -34,7 +34,6 @@ auth.onAuthStateChanged((user) => {
     }
     window.hideLoading();
   } else {
-    if (lastPath == "login.html") window.location.href = "index.html";
     window.showLoading();
     currentUser = user;
     $("#show-reg-form").hide();
@@ -62,6 +61,7 @@ auth.onAuthStateChanged((user) => {
             }
           }
           if (currentUser.registrationStatus === "Talent") {
+            if (lastPath == "login.html") window.location.href = "index.html";
             if (lastPath == "TalentSearch.html")
               window.location.href = "pricing.html";
             $("#free-button").parent().css("background-color", "grey");
@@ -71,6 +71,7 @@ auth.onAuthStateChanged((user) => {
             $("#talent-button").text("Registered");
             $("#profile-icon").attr("src", "images/talent.png");
           } else if (currentUser.registrationStatus === "Recruiter") {
+            if (lastPath == "login.html") window.location.href = "index.html";
             if (lastPath == "EventList.html")
               window.location.href = "pricing.html";
             $("#profile-icon").attr("src", "images/recruit.png");
@@ -81,6 +82,9 @@ auth.onAuthStateChanged((user) => {
             $("#free-button").css("background-color", "grey");
           } else {
             $("#sub-icon").attr("src", "images/sub.png");
+            $("#free-button").parent().css("background-color", "grey");
+            $("#free-button").css("background-color", "grey");
+            $("#free-button").text("Registered");
             if (
               lastPath == "TalentSearch.html" ||
               lastPath == "usertemplate.html" ||
@@ -180,7 +184,7 @@ $("#recruit-button").on("click", function () {
 
 $("#free-button").on("click", function () {
   if (currentUser == null) window.location = "login.html";
-  else if (currentUser.registrationStatus == "Free")
+  else if (currentUser.registrationStatus != "Free")
     window.location = "index.html";
 });
 
@@ -244,7 +248,6 @@ $("#main-register-form").on("submit", function (e) {
           window.hideLoading();
         }
       });
-      hideModal();
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
@@ -288,7 +291,6 @@ $("#main-login-form").on("submit", function (e) {
             var days = Math.round(
               (Date.now() - currentUser.paymentDate) / (1000 * 3600 * 24)
             );
-            alert(days);
             if (days >= 365) {
               alert(
                 "Your Subscription Has Ended! Please Register Again to Continue your Subscription."
@@ -606,10 +608,12 @@ function onImageUpload() {
         userImageUrl = JSON.parse(data).url;
         var imageListRef = database.ref("users/" + currentUser.uid + "/images");
         var newImageRef = imageListRef.push();
-        newImageRef.set(userImageUrl).then(function () {
-          alert("Image Sucessfully Posted!");
-          window.location.reload();
-        });
+        newImageRef
+          .set([userImageUrl, document.getElementById("youtube-link").value])
+          .then(function () {
+            alert("Image Sucessfully Posted!");
+            window.location.reload();
+          });
       });
   } catch (error) {
     alert("Image cannot be uploaded! Try using a different image.");

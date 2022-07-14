@@ -49,10 +49,22 @@ $(document).ready(function () {
                     <div class="grid-post-media">
                         <a class="gpm_link" onclick="onImageDelete('${val}')">
                             <div class="bg-wrap">
-                                <img style="width: 100%" src="${user_data.images[val]}"></img>
+                                <img style="width: 100%" src="${
+                                  user_data.images[val][0]
+                                }"></img>
                             </div>
                         </a>
-                        <span class="post-media_title">&copy; Cinitimes</span>
+                        <span onclick="${
+                          user_data.images[val][1] != ""
+                            ? "window.location = '" +
+                              user_data.images[val][1] +
+                              "'"
+                            : ""
+                        }" class="post-media_title">${
+                user_data.images[val][1] != ""
+                  ? user_data.images[val][1]
+                  : "&copy; Cinitimes"
+              }</span>
                     </div>
                 </div>
               </div>`
