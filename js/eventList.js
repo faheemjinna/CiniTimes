@@ -6,7 +6,7 @@ $(document).ready(function () {
       snapshot.forEach((childSnapshot) => {
         var data = childSnapshot.val();
         $("#card-section").append(
-          `<div class="card-flex friend-card col-md-4">
+          `<div class="card-flex friend-card" style="width: 100%">
             <div class="star-friend is-active">
                 <i data-feather="star"></i>
             </div>
