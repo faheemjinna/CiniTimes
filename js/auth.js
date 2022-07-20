@@ -577,6 +577,7 @@ $("#event-submit").on("click", function () {
     duration: document.getElementById("event_duration").value,
     description: document.getElementById("event-desp").value,
     role: document.getElementById("event_role").value,
+    req: document.getElementById("event_req").value,
     ownerUid: currentUser.uid,
     ownerName: currentUser.fname + " " + currentUser.lname,
     ownerImageUrl: currentUser.imageUrl,
