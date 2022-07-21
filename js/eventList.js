@@ -39,7 +39,7 @@ $(document).ready(function () {
                         style="color: black;">Expiry on: </a>${data.expiryOn}</p>
                 <p style="margin-top: -15px; text-align: center;"><a
                         style="color: black;">Duration: </a>${data.duration}</p>
-                        <p style="margin-top: -5px; text-align: justify; color: black; font-size: 16px; font-style: bold;font-weight: bolder; padding-left: 10px; padding-right: 10px;"><a 
+                        <p style="margin-top: -5px; text-align: center; color: black; font-size: 16px; font-style: bold;font-weight: bolder; padding-left: 10px; padding-right: 10px;"><a 
                             style="color: black;"></a>${data.title}</p>
                         <p style="margin-top: -5px; text-align: center; color: black;"><a 
                                 ></a>${data.req}</p>
