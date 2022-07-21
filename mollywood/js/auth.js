@@ -61,7 +61,7 @@ auth.onAuthStateChanged((user) => {
             }
           }
           if (currentUser.registrationStatus === "Talent") {
-            if (lastPath == "login.html") window.location.href = "../index.html";
+            if (lastPath == "login.html") window.location.href = "index.html";
             if (lastPath == "TalentSearch.html")
               window.location.href = "pricing.html";
             $("#free-button").parent().css("background-color", "grey");
@@ -71,7 +71,7 @@ auth.onAuthStateChanged((user) => {
             $("#talent-button").text("Registered");
             $("#profile-icon").attr("src", "images/talent.png");
           } else if (currentUser.registrationStatus === "Recruiter") {
-            if (lastPath == "login.html") window.location.href = "../index.html";
+            if (lastPath == "login.html") window.location.href = "index.html";
             if (lastPath == "EventList.html")
               window.location.href = "pricing.html";
             $("#profile-icon").attr("src", "images/recruit.png");
@@ -185,7 +185,7 @@ $("#recruit-button").on("click", function () {
 $("#free-button").on("click", function () {
   if (currentUser == null) window.location = "login.html";
   else if (currentUser.registrationStatus != "Free")
-    window.location = "../index.html";
+    window.location = "index.html";
 });
 
 $("#user-profile").on("click", function () {
@@ -308,7 +308,7 @@ $("#main-login-form").on("submit", function (e) {
               .child("users/" + user.uid)
               .update(user_data)
               .then(() => {
-                //window.location.href = "../index.html";
+                //window.location.href = "index.html";
               });
           }
         });
@@ -480,7 +480,7 @@ function talentSaveToDB(response) {
           });
       } catch (error) {
         alert("Something went Wrong! Try Again.");
-        window.location.href = "../index.html";
+        window.location.href = "index.html";
       }
     });
 
@@ -729,7 +729,7 @@ $("#talent-edit-submit").on("click", function (e) {
       });
   } catch (error) {
     alert("Something went Wrong! Try Again.");
-    window.location.href = "../index.html";
+    window.location.href = "index.html";
   }
 });
 
@@ -774,7 +774,7 @@ function renewUpdateDB(response) {
     if (error) console.log(error);
     else {
       alert("Congratulations! Your Subscription is Sucessfully Renewed!");
-      window.location.href = "../index.html";
+      window.location.href = "index.html";
     }
   });
 }
@@ -790,6 +790,6 @@ function paymentDenied() {
     .child("users/" + currentUser.uid)
     .update(user_data)
     .then(() => {
-      window.location.href = "../index.html";
+      window.location.href = "index.html";
     });
 }
