@@ -382,7 +382,7 @@ function talentPaymentProcess() {
     name: "Talent Registeration",
     description:
       "Become a Talent in CiniTimes and Get Hired for your favorite part!",
-    image: "images/logo.png",
+    image: "images/cinitimes.png",
     handler: function (response) {
       talentSaveToDB(response);
       //$('#myModal').modal(); Can be used to say a success message
@@ -494,7 +494,7 @@ function recruitPaymentProcess() {
     currency: "INR",
     name: "Recruiter Registeration",
     description: "Become a Talent Recruiter and Get your talent needs filled!",
-    image: "images/logo.png",
+    image: "images/cinitimes.png",
     handler: function (response) {
       recruitSaveToDB(response);
       //$('#myModal').modal(); Can be used to say a success message
@@ -740,7 +740,7 @@ function paymentRenewProcess() {
     currency: "INR",
     name: "Renew Subscription",
     description: "Best Choice you have made this year!",
-    image: "images/logo.png",
+    image: "images/cinitimes.png",
     handler: function (response) {
       renewUpdateDB(response);
       //$('#myModal').modal(); Can be used to say a success message
