@@ -31,7 +31,7 @@ $(document).ready(function () {
               
               
             </div>
-            <div style="background-color:#f2f2f2;width: 30%; height: 100%; float: left;border-radius: 5px; position: absolute; left: 70%;">
+            <div style="background-color:#f2f2f2;width: 30%; float: left;border-radius: 5px; position: absolute; left: 70%;">
               <div class="friend-info" style="padding: 10px;">
                 <p style=" text-align: center;"><a style="color: black;">Posted on:
                     </a>${data.postedOn}</p> 
