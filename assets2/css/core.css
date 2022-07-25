@@ -64496,6 +64496,7 @@ body.is-dark .card-row-wrap .friend-card .star-friend:not(.is-active) svg {
   fill: #2f3b50;
   stroke: #2f3b50;
 }
+
 body.is-dark .card-row-wrap .friend-card .img-container .country {
   border-color: #202836;
 }
