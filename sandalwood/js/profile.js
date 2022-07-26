@@ -26,7 +26,7 @@ $(document).ready(function () {
         $("#talentexpertise").text(user_data.expertise);
         $("#talentlang").text(user_data.languagesKnown);
         $("#talentlocation").text(
-          user_data.city + ", " + user_data.state + ", " + user_data.country
+          user_data.city + ", " + user_data.state
         );
         $("#talentavailability").text(user_data.availability);
         $("#talentabout").text(user_data.aboutMe);

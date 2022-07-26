@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 var currentUser;
-
+$("#add-auditon-button").hide();
 //Track Auth Status
 auth.onAuthStateChanged((user) => {
   var lastPath = window.location.pathname.split("/").pop();
@@ -74,6 +74,7 @@ auth.onAuthStateChanged((user) => {
             if (lastPath == "login.html") window.location.href = "index.html";
             if (lastPath == "EventList.html")
               window.location.href = "pricing.html";
+            $("#add-auditon-button").show();
             $("#profile-icon").attr("src", "images/recruit.png");
             $("#recruit-button").css("background-color", "grey");
             $("#recruit-button").parent().css("background-color", "grey");
@@ -152,8 +153,6 @@ auth.onAuthStateChanged((user) => {
       $("#add-event-form").hide();
       $("#image-upload").hide();
       $("#contact-button").text("Contact");
-    } else {
-      $(".event-button").text("Delete");
     }
   }
 });
@@ -202,6 +201,11 @@ $("#contact-button").on("click", function (e) {
     e.preventDefault();
     window.location.href = "talenteditprofile.html";
   }
+});
+
+$("#add-auditon-button").on("click", function () {
+  window.location.href =
+    "rectemplate.html?id=" + currentUser.uid + "#add-event-form";
 });
 
 //Set up Register function
@@ -581,6 +585,7 @@ $("#event-submit").on("click", function () {
     ownerUid: currentUser.uid,
     ownerName: currentUser.fname + " " + currentUser.lname,
     ownerImageUrl: currentUser.imageUrl,
+    ownerEmail: currentUser.email,
   };
   // Create a new post reference with an auto-generated id
   var eventListRef = database.ref("events");
@@ -648,6 +653,8 @@ function eventButtonFunction() {
   let userId = searchParams.get("id");
   if (currentUser.uid == userId) {
     $(".event-button").text("Delete");
+  } else {
+    $(".event-button").hide();
   }
 }
 

@@ -7785,7 +7785,11 @@ jQuery Plugin
         }
         if (href == "#") {
           e.preventDefault();
+<<<<<<< HEAD
         } else if (href && href.indexOf("#menu-panel") == 0) {
+=======
+        } else if (href.indexOf("#menu-panel") == 0) {
+>>>>>>> c69bfb5dc25711f4f138fbfce310dc110087860b
           var target = $(href),
             isBack = $(this).hasClass("back"),
             marginLeft = parseInt(wrapper.css("margin-left"));
