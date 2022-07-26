@@ -27,7 +27,7 @@ $(document).ready(function () {
                   <div style="padding: 10px; float: right; margin-top: -20px;">
                       <p style=" text-align: left; font-size: 14px; font-weight: bold; margin-bottom: 1px;"><a style="color: black;">Posted by:
                       </a></p>
-                      <p style=" font-size: 12px; font-weight: bold; color: black;"><img src="${data.ownerImageUrl}" alt="Logo" style="width:30px;height:30px;margin-right:5px; border-radius: 100%; font-size: 14px; font-weight: bold;">
+                      <p style=" font-size: 12px; font-weight: bold; color: black;"><img onclick="openRecruiter('${data.ownerUid}')" src="${data.ownerImageUrl}" alt="Logo" style="width:30px;height:30px;margin-right:5px; border-radius: 100%; font-size: 14px; font-weight: bold;">
                           ${data.ownerName} </div>
               </div>
           </div>
@@ -50,9 +50,9 @@ $(document).ready(function () {
               <div class="subcribe-form fl-wrap" style="display: flex;
               justify-content: center;
               align-items: center;">
-                  <button type="submit" id="contact-button" onclick="openRecruiter('${data.ownerUid}')"
-                      class="subscribe-button color-bg" style="width: 100px; height: 50px; margin-bottom: 10px;">Contact
-                  </button>
+                  <a type="submit" id="contact-button" href="mailto:${data.ownerEmail}?subject=Applying for audition '${data.title}' from Cinitimes"
+                      class="color-bg" style="padding: 15px; color: white; font-weight: bold">CONTACT
+                  </a>
               </div>
               </div>
           </div>
