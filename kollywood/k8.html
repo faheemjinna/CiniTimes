@@ -911,10 +911,15 @@ z-index: 9999;
                                         <div class="subcribe-form fl-wrap">
                                             <p>Catch all the Latest movie news updates and Trending media News from Cinitimes, India's movie Destination! Get the latest Insights about the Indian Film Industry.</p>
                                             <div class="fl-wrap">
-                                                <input class="enteremail" name="email" id="subscribe-email"
-                                                    placeholder="Your Email" spellcheck="false" type="text">
-                                                <button
-                                                    class="subscribe-button color-bg" onclick="location.href='mailto:info@cinitime.com?subject=Cinitimes Mail Subscription&body=Hey Add me in the notification list, i wish to be notified regularly.';">Send </button>
+                                                <form class="custom-form" action="mailto:info@cinitimes.com?subject=Cinitimes Mail Subscription&body=Hey Add me in the notification list, i wish to be notified regularly.';" enctype="text/plain"
+                                            name="contactform"method="post">
+                                            <fieldset>
+                                                <input type="text" name="email"placeholder="Email Address*"
+                                                    value="" />
+                                            </fieldset>
+                                            <button class="btn   color-bg float-btn"type="submit" style="margin-top: -10px;">Subscribe<i
+                                                    class="fas fa-caret-right"></i></button>
+                                        </form>
                                             </div>
                                         </div>
                                     </div>
