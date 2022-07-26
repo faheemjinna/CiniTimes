@@ -325,10 +325,10 @@ $("#main-login-form").on("submit", function (e) {
 });
 
 // Set up Log out Fuction
-$("#log-out").on("click", function () {
+function logOut() {
   auth.signOut();
   window.location.reload();
-});
+}
 
 $("#talent-pay-now").on("click", function (e) {
   e.preventDefault();

@@ -7785,7 +7785,7 @@ jQuery Plugin
         }
         if (href == "#") {
           e.preventDefault();
-        } else if (href.indexOf("#menu-panel") == 0) {
+        } else if (href && href.indexOf("#menu-panel") == 0) {
           var target = $(href),
             isBack = $(this).hasClass("back"),
             marginLeft = parseInt(wrapper.css("margin-left"));
@@ -12146,12 +12146,10 @@ jQuery Plugin
   }
   function U(e, t) {
     return e.transformEl
-      ? t
-          .find(e.transformEl)
-          .css({
-            "backface-visibility": "hidden",
-            "-webkit-backface-visibility": "hidden",
-          })
+      ? t.find(e.transformEl).css({
+          "backface-visibility": "hidden",
+          "-webkit-backface-visibility": "hidden",
+        })
       : t;
   }
   function K({ swiper: e, duration: t, transformEl: s, allSlides: a }) {
