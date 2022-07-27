@@ -324,13 +324,8 @@ $("#main-login-form").on("submit", function (e) {
     });
 });
 
-
 // Set up Log out Fuction
 function logOut() {
-
-// Set up Log Out Fuction
-$("#log-out").on("click", function () {
-
   auth.signOut();
   window.location.reload();
 }
