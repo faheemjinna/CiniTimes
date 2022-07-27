@@ -237,13 +237,13 @@ z-index: 9999;
                                         Industry.</p>
                                     <div id="contact-form" style="margin-top: 20px;">
                                         <div></div>
-                                        <form class="custom-form" action="mailto:info@cinitimes.com"
+                                        <form class="custom-form" action="mailto:info@cinitimes.com/action_page.php"
                                             enctype="text/plain" name="contactform" method="post">
                                             <fieldset>
-                                                <input type="text" name="name" placeholder="Your Name *" value="" />
-                                                <input type="text" name="email" placeholder="Email Address*" value="" />
+                                                <input type="text" name="name" placeholder="Your Name *" value="" required/>
+                                                <input type="text" name="email" placeholder="Email Address*" value="" required/>
                                                 <textarea name="comments" cols="40" rows="3"
-                                                    placeholder="Your Message:"></textarea>
+                                                    placeholder="Your Message:" required></textarea>
                                             </fieldset>
                                             <button class="btn   color-bg float-btn" type="submit">Send message <i
                                                     class="fas fa-caret-right"></i></button>
