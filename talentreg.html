@@ -149,8 +149,7 @@ z-index: 9999;
                     </div>
                     <!-- navigation  end -->
                 </div>
-            </div><a id="add-auditon-button"
-                style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
+            </div><a id="add-auditon-button" style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
                 color: white;
                 border: 0.5px solid whitesmoke;transition: all;cursor: pointer;
   display: inline-block;
@@ -198,7 +197,7 @@ z-index: 9999;
 
 
                                         <div class="form_container">
-                                            <form name="form">
+                                            <form name="form" id="talent-reg-form">
                                                 <div class="heading">
                                                     <h2 style="text-align: center;margin-top: 15px; font-size: 20px;">
                                                         Talent Registration </h2>
@@ -216,7 +215,8 @@ z-index: 9999;
                                                       
                                                         margin-bottom: 9px;
                                                       ">First Name</label>
-                                                        <input type="text" required id="talentfname" placeholder="First Name">
+                                                        <input type="text" required id="talentfname"
+                                                            placeholder="First Name">
 
                                                     </div>
                                                     <div class="form_item">
@@ -230,7 +230,8 @@ z-index: 9999;
                                                       
                                                         margin-bottom: 9px;
                                                       ">Last Name</label>
-                                                        <input type="text" required id="talentlname" placeholder="Last Name">
+                                                        <input type="text" required id="talentlname"
+                                                            placeholder="Last Name">
 
                                                     </div>
                                                 </div>
@@ -246,7 +247,8 @@ z-index: 9999;
                                                       
                                                         margin-bottom: 9px;
                                                       ">Phone</label>
-                                                        <input type="text" required id="talentphone" placeholder="Phone">
+                                                        <input type="text" required id="talentphone"
+                                                            placeholder="Phone">
 
 
                                                     </div>
@@ -283,7 +285,8 @@ z-index: 9999;
                                                       
                                                         margin-bottom: 9px;
                                                       ">E-Mail</label>
-                                                        <input type="text" required id="talentemail" placeholder="xyz@gmail.com">
+                                                        <input type="text" required id="talentemail"
+                                                            placeholder="xyz@gmail.com">
 
                                                     </div>
                                                     <div class="form_item">
@@ -698,7 +701,8 @@ z-index: 9999;
                                                 text-align:justify; ">
                                                     <div>
 
-                                                        <input type="checkbox" style="padding: left 10px;;" id="terms">
+                                                        <input type="checkbox" style="padding: left 10px;;" id="terms"
+                                                            required>
                                                         <label>
 
 
@@ -715,14 +719,14 @@ z-index: 9999;
 
 
 
-                                        </div>
 
-                                        <div class="btn">
-                                            <input type="submit" style="height: 50px;" value="SUBMIT"
-                                                id="talent-pay-now">
-                                        </div>
-                                        </form>
 
+                                                <div class="btn">
+                                                    <input type="submit" style="height: 50px;" value="SUBMIT"
+                                                        id="talent-pay-now">
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                     <!-- <div class="clearfix"></div> -->
                                     <!-- <div class="load-more_btn"><i class="fal fa-undo"></i>Load More</div> -->
@@ -1058,14 +1062,14 @@ z-index: 9999;
                                                 Cinitimes, India's movie Destination! Get the latest Insights about the
                                                 Indian Film Industry.</p>
                                             <div class="fl-wrap">
-                                                
+
 
                                                 <form class="custom-form"
                                                     action="mailto:info@cinitimes.com?subject=Cinitimes Mail Subscription&body=Hey Add me in the notification list, i wish to be notified regularly.';/action_page.php"
                                                     enctype="text/plain" name="contactform" method="post">
                                                     <fieldset>
                                                         <input type="text" name="email" placeholder="Email Address*"
-                                                            value="" required/>
+                                                            value="" required />
                                                     </fieldset>
                                                     <button class="btn   color-bg float-btn" type="submit"
                                                         style="margin-top: -10px;">Subscribe<i

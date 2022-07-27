@@ -330,12 +330,12 @@ function logOut() {
   window.location.reload();
 }
 
-$("#talent-pay-now").on("click", function (e) {
+$("#talent-reg-form").on("submit", function (e) {
   e.preventDefault();
   window.showLoading();
   talentPaymentProcess();
 });
-$("#recruit-pay-now").on("click", function (e) {
+$("#recruiter-reg-form").on("submit", function (e) {
   e.preventDefault();
   recruitPaymentProcess();
 });
