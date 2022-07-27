@@ -15773,7 +15773,7 @@ jQuery Plugin
 });
 //# sourceMappingURL=swiper-bundle.min.js.map
 
-// Weather=============================================
+// Weather===
 jQuery,
   ($.fn.ideaboxWeather = function (a) {
     return (

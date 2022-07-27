@@ -1,5 +1,5 @@
 @charset "utf-8";
-/*======================================
+/*===
 
  [ -Main Stylesheet-
   Theme: Gmag
@@ -280,7 +280,7 @@ body.is-dark
   .stat-block
   .stat-number {
   color: #fafafa;
-} 
+}
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .media-flex.is-responsive-tablet-l,
   .media-flex-center.is-responsive-tablet-l {
@@ -316,7 +316,7 @@ body.is-dark
   .friend-cards-list .is-friend-card .friend-item .text-content span {
     font-size: 0.65rem !important;
   }
-} 
+}
 .friend-cards-list {
   padding-top: 10px;
 }
@@ -673,7 +673,6 @@ body.is-dark .card-row-wrap .friend-card .img-container .country {
 }
 .search_btn {
   border-right: 1px solid #000;
-  
 }
 .show-cart i,
 .srf_btn i,
@@ -6200,7 +6199,6 @@ body {
 .form_wrap.fullname .form_item:first-child,
 .form_wrap.select_box .form_item:first-child {
   margin-right: 30px;
- 
 }
 
 .wrapper .form_container .form_item label {
@@ -6236,7 +6234,7 @@ body {
 .btn input[type="submit"] {
   background: #ea3323;
   border: 1px solid #ea3323;
-  
+
   width: 20%;
   font-size: 12px;
   font: bolder;

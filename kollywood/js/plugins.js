@@ -12146,12 +12146,10 @@ jQuery Plugin
   }
   function U(e, t) {
     return e.transformEl
-      ? t
-          .find(e.transformEl)
-          .css({
-            "backface-visibility": "hidden",
-            "-webkit-backface-visibility": "hidden",
-          })
+      ? t.find(e.transformEl).css({
+          "backface-visibility": "hidden",
+          "-webkit-backface-visibility": "hidden",
+        })
       : t;
   }
   function K({ swiper: e, duration: t, transformEl: s, allSlides: a }) {
@@ -15775,7 +15773,7 @@ jQuery Plugin
 });
 //# sourceMappingURL=swiper-bundle.min.js.map
 
-// Weather=============================================
+// Weather===
 jQuery,
   ($.fn.ideaboxWeather = function (a) {
     return (
