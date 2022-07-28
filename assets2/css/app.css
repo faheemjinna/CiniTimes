@@ -1525,7 +1525,7 @@
   font-weight: bold;
 }
 .easy-autocomplete-container ul .eac-category {
-  font-color: #aaa;
+  color: #aaa;
   font-style: italic;
 }
 .eac-description .eac-item span {
@@ -21426,7 +21426,6 @@ background: #fff url('img/search.png') no-repeat 15px 15px;
 .tokenize-dropdown > .dropdown-menu li:not(.active) a:focus {
   background-color: transparent;
 }
-@charset "UTF-8";
 
 @font-face {
   font-family: "dripicons-v2";

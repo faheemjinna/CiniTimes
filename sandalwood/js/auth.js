@@ -22,8 +22,8 @@ $("#add-auditon-button").hide();
 auth.onAuthStateChanged((user) => {
   var lastPath = window.location.pathname.split("/").pop();
   if (user == null) {
-    $("#show-reg-form").show();
-    $("#log-out").hide();
+    $(".login-button").show();
+    $(".logout-button").hide();
     if (
       lastPath == "TalentSearch.html" ||
       lastPath == "usertemplate.html" ||
@@ -36,8 +36,8 @@ auth.onAuthStateChanged((user) => {
   } else {
     window.showLoading();
     currentUser = user;
-    $("#show-reg-form").hide();
-    $("#log-out").show();
+    $(".login-button").hide();
+    $(".logout-button").show();
     database
       .ref()
       .child("users")

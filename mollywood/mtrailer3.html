@@ -140,8 +140,8 @@ z-index: 9999;
                                 <li><a href="../music.html" style="margin-right: 40px;">Music</a></li>
                                 <li><a style="margin-right: 40px;">Membership<i class="fas fa-caret-down"></i></a>
                                     <ul id="auth-menu">
-                                        <li><a id="show-reg-form" href="../login.html">Login</a></li>
-                                        <li><a id="log-out" onclick="logOut()" style="display: none;">Log Out</a></li>
+                                        <li><a id="login" class="login-button" href="../login.html">Login</a></li>
+                                        <li><a id="log-out" class="logout-button" onclick="logOut()">Log Out</a></li>
                                         <li><a href="../EventList.html" id="audition-button">Auditions</a></li>
                                         <li><a href="../TalentSearch.html" id="talent-search-button">Talent Search</a>
                                         </li>
@@ -154,8 +154,7 @@ z-index: 9999;
                     </div>
                     <!-- navigation  end -->
                 </div>
-            </div><a id="add-auditon-button"
-                style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
+            </div><a id="add-auditon-button" style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
                 color: white;
                 border: 0.5px solid whitesmoke;transition: all;cursor: pointer;
   display: inline-block;
@@ -222,13 +221,15 @@ z-index: 9999;
                                                             <a href="../mollywood/mtrailer2.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/mollywood/mtrailer2.jpg"></div>
+                                                                        data-bg="images/all/mollywood/mtrailer2.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../mollywood/mtrailer2.html">One Trailer</a></h3>
+                                                            <h3><a href="../mollywood/mtrailer2.html">One Trailer</a>
+                                                            </h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 05
                                                                 April 2022</span>
                                                         </div>
@@ -244,13 +245,15 @@ z-index: 9999;
                                                             <a href="../mollywood/mtrailer1.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/mollywood/mtrailer1.jpg"></div>
+                                                                        data-bg="images/all/mollywood/mtrailer1.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../mollywood/mtrailer1.html">Kaaval Trailer</a></h3>
+                                                            <h3><a href="../mollywood/mtrailer1.html">Kaaval Trailer</a>
+                                                            </h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 11
                                                                 March 2022</span>
                                                         </div>
@@ -270,13 +273,15 @@ z-index: 9999;
                                                             <a href="../mollywood/mtrailer4.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/mollywood/mtrailer4.jpg"></div>
+                                                                        data-bg="images/all/mollywood/mtrailer4.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../mollywood/mtrailer4.html">Lucifer Trailer</a></h3>
+                                                            <h3><a href="../mollywood/mtrailer4.html">Lucifer
+                                                                    Trailer</a></h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 05
                                                                 April 2022</span>
                                                         </div>
@@ -292,13 +297,15 @@ z-index: 9999;
                                                             <a href="../mollywood/mtrailer5.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/mollywood/mtrailer5.jpg"></div>
+                                                                        data-bg="images/all/mollywood/mtrailer5.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../mollywood/mtrailer5.html">Take Off Trailer</a>
+                                                            <h3><a href="../mollywood/mtrailer5.html">Take Off
+                                                                    Trailer</a>
                                                             </h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 11
                                                                 March 2022</span>
@@ -630,14 +637,14 @@ z-index: 9999;
                                                 Cinitimes, India's movie Destination! Get the latest Insights about the
                                                 Indian Film Industry.</p>
                                             <div class="fl-wrap">
-                                                
+
 
                                                 <form class="custom-form"
                                                     action="mailto:info@cinitimes.com?subject=Cinitimes Mail Subscription&body=Hey Add me in the notification list, i wish to be notified regularly.';/action_page.php"
                                                     enctype="text/plain" name="contactform" method="post">
                                                     <fieldset>
                                                         <input type="text" name="email" placeholder="Email Address*"
-                                                            value="" required/>
+                                                            value="" required />
                                                     </fieldset>
                                                     <button class="btn   color-bg float-btn" type="submit"
                                                         style="margin-top: -10px;">Subscribe<i
