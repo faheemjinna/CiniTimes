@@ -135,8 +135,8 @@ z-index: 9999;
                                 <li><a href="../music.html" class="act-link" style="margin-right: 40px;">Music</a></li>
                                 <li><a style="margin-right: 40px;">Membership<i class="fas fa-caret-down"></i></a>
                                     <ul id="auth-menu">
-                                        <li><a id="show-reg-form" href="login.html">Login</a></li>
-                                        <li><a id="log-out" onclick="logOut()" style="display: none;">Log Out</a></li>
+                                        <li><a id="login" class="login-button" href="login.html">Login</a></li>
+                                        <li><a id="log-out" class="logout-button" onclick="logOut()">Log Out</a></li>
                                         <li><a href="../EventList.html" id="audition-button">Auditions</a></li>
                                         <li><a href="../TalentSearch.html" id="talent-search-button">Talent Search</a>
                                         </li>
@@ -148,8 +148,7 @@ z-index: 9999;
                     </div>
                     <!-- navigation  end -->
                 </div>
-            </div><a id="add-auditon-button"
-                style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
+            </div><a id="add-auditon-button" style="position: absolute;top: 250px;right: 0;color: white;padding: 20px;font-weight: bold; margin-top: -20px; background-color: red;
                 color: white;
                 border: 0.5px solid whitesmoke;transition: all;cursor: pointer;
   display: inline-block;
@@ -220,13 +219,15 @@ z-index: 9999;
                                                             <a href="../kollywood/kmusic2.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/kollywood/kmusic2.jpg"></div>
+                                                                        data-bg="images/all/kollywood/kmusic2.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../kollywood/kmusic2.html">Vennilave Song</a></h3>
+                                                            <h3><a href="../kollywood/kmusic2.html">Vennilave Song</a>
+                                                            </h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 05
                                                                 April 2022</span>
                                                         </div>
@@ -242,7 +243,8 @@ z-index: 9999;
                                                             <a href="../kollywood/kmusic3.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/kollywood/kmusic3.jpg"></div>
+                                                                        data-bg="images/all/kollywood/kmusic3.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
@@ -268,7 +270,8 @@ z-index: 9999;
                                                             <a href="../kollywood/kmusic4.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/kollywood/kmusic4.jpg"></div>
+                                                                        data-bg="images/all/kollywood/kmusic4.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
@@ -291,13 +294,15 @@ z-index: 9999;
                                                             <a href="../kollywood/kmusic5.html">
                                                                 <div class="bg-wrap">
                                                                     <div class="bg"
-                                                                        data-bg="images/all/kollywood/kmusic5.jpg"></div>
+                                                                        data-bg="images/all/kollywood/kmusic5.jpg">
+                                                                    </div>
                                                                 </div>
                                                             </a>
                                                             <span class="post-media_title">&copy; Cinitimes</span>
                                                         </div>
                                                         <div class="list-post-content">
-                                                            <h3><a href="../kollywood/kmusic5.html">Tum Tum Song</a></h3>
+                                                            <h3><a href="../kollywood/kmusic5.html">Tum Tum Song</a>
+                                                            </h3>
                                                             <span class="post-date"><i class="far fa-clock"></i> 11
                                                                 March 2022</span>
                                                         </div>
@@ -627,7 +632,7 @@ z-index: 9999;
                                                     enctype="text/plain" name="contactform" method="post">
                                                     <fieldset>
                                                         <input type="text" name="email" placeholder="Email Address*"
-                                                            value="" required/>
+                                                            value="" required />
                                                     </fieldset>
                                                     <button class="btn   color-bg float-btn" type="submit"
                                                         style="margin-top: -10px;">Subscribe<i
