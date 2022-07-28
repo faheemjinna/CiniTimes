@@ -159,6 +159,7 @@ auth.onAuthStateChanged((user) => {
 
 $("#talent-button").on("click", function () {
   if (currentUser == null) window.location.href = "login.html";
+  else if (currentUser.registrationStatus == "Talent") return;
   else if (currentUser.registrationStatus == "Recruiter") {
     if (
       confirm(
@@ -171,6 +172,7 @@ $("#talent-button").on("click", function () {
 
 $("#recruit-button").on("click", function () {
   if (currentUser == null) window.location.href = "login.html";
+  else if (currentUser.registrationStatus == "Recruiter") return;
   else if (currentUser.registrationStatus == "Talent") {
     if (
       confirm(
@@ -183,8 +185,6 @@ $("#recruit-button").on("click", function () {
 
 $("#free-button").on("click", function () {
   if (currentUser == null) window.location = "login.html";
-  else if (currentUser.registrationStatus != "Free")
-    window.location = "index.html";
 });
 
 $("#user-profile").on("click", function () {
