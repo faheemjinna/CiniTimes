@@ -159,7 +159,7 @@ auth.onAuthStateChanged((user) => {
 
 $("#talent-button").on("click", function () {
   if (currentUser == null) window.location.href = "login.html";
-  else if (currentUser.registrationStatus != "Free") {
+  else if (currentUser.registrationStatus == "Recruiter") {
     if (
       confirm(
         "You can only be a Recruiter or a Talent! Do you want to become a Recuriter Now? (Charges apply)"
@@ -171,7 +171,7 @@ $("#talent-button").on("click", function () {
 
 $("#recruit-button").on("click", function () {
   if (currentUser == null) window.location.href = "login.html";
-  else if (currentUser.registrationStatus != "Free") {
+  else if (currentUser.registrationStatus == "Talent") {
     if (
       confirm(
         "You can only be a Recruiter or a Talent! Do you want to become a Recuriter Now? (Charges apply)"
