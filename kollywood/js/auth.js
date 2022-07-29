@@ -28,7 +28,7 @@ auth.onAuthStateChanged((user) => {
       lastPath == "TalentSearch.html" ||
       lastPath == "usertemplate.html" ||
       lastPath == "rectemplate.html" ||
-      lastPath == "EventList.html"
+      lastPath == "auditions.html"
     ) {
       window.location.href = "pricing.html";
     }
@@ -72,7 +72,7 @@ auth.onAuthStateChanged((user) => {
             $("#profile-icon").attr("src", "images/talent.png");
           } else if (currentUser.registrationStatus === "Recruiter") {
             if (lastPath == "login.html") window.location.href = "index.html";
-            if (lastPath == "EventList.html")
+            if (lastPath == "auditions.html")
               window.location.href = "pricing.html";
             $("#add-auditon-button").show();
             $("#profile-icon").attr("src", "images/recruit.png");
@@ -90,7 +90,7 @@ auth.onAuthStateChanged((user) => {
               lastPath == "TalentSearch.html" ||
               lastPath == "usertemplate.html" ||
               lastPath == "rectemplate.html" ||
-              lastPath == "EventList.html"
+              lastPath == "auditions.html"
             ) {
               window.location.href = "pricing.html";
             }
