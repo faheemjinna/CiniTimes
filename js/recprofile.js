@@ -109,7 +109,7 @@ $(document).ready(function () {
       <div class="grid-post-media">
           <a href="post-single.html" class="gpm_link">
               <div class="bg-wrap">
-                  <div class="bg" data-bg="images/all/kollywood/k3.jpg"></div>
+                  <div class="bg" data-bg="images/all/kollywood/pathu-thala-movie-will-resume.jpg"></div>
               </div>
           </a>
           <span class="post-media_title">&copy; Cinitimes</span>
